@@ -1,45 +1,72 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <title>Hardware Online</title>
-        <header>
-            <h1 class = "topofthepage">
-                Hardware Online <br>
-            <small class="text-muted">America's Favorite Online Hardware Store</small>
-            </h1>
-        </header>
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Search our Website!</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                <a class="nav-link" href="homepage.html">Home(TODO)<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="AboutMe.html">About Us(TODO)</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="TODO">Shop(TODO)</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="TODO">Login(TODO)</a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-            </div>
-        </nav>
 
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Hardware Online</title>
+    <header>
+      <h1 class="topofthepage">
+        Hardware Online
+        <br>
+        <small class="text-muted">America's Favorite Online Hardware Store</small>
+      </h1>
+    </header>
+  </head>
 
-    </Body>
+  <body>
+    <!-- Contents of the disclaimer-->
+    <div class="disclaimer-overlay" id="disclaimer-overlay">
+      <h2>
+        Disclaimer:
+      </h2>
+      <div class="disclaimer-text">
+        <h3>Your Rights</h3>
+        <p>
+          This website is not liable if information that is stored, transmitted, received or deleted on this site is corrupted, lost, deleted, stolen, or decrypted. We will work closely with authorities if data is found to have some sort of illegal relations.
+        </p>
+        <h3>Our Rights</h3>
+        <p>
+          By using this website you also agree not to, exploit, perform denial of service, decompile, decrypt, or exploit any trasmission method, data or software. You also agree not to copy, modify, and use any intellectual property, software or information. If the previously state occurs, the appropriate authorities will be contacted and you will be prosecuted to the fullest extent.
+        </p>
+        <h3>Third Parties</h3>
+        <p>
+          We reserve the right to use third parties with access to any data that is stored, transmitted, or processed on this site. Any information provided to us may be used with these third parties. We reserve the right not to disclose who or what our third parties are.
+        </p>
+
+      </div>
+
+      <button onclick="document.getElementById('disclaimer-overlay').style.cssText = 'visibility:hidden';">I agree...
+      </button>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Search our Website!</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="homepage.html">Home(TODO)<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="AboutMe.html">About Us(TODO)</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="TODO">Shop(TODO)</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="TODO">Login(TODO)</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+  </body>
+
 </html>
