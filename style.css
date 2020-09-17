@@ -47,6 +47,16 @@ a {
   color: black;
 }
 
+.changelog td {
+  padding: 2px;
+}
+.changelog th {
+  background-color: lightgray;
+}
+
+.changelog tr {
+  text-align: center;
+}
 footer {
   position: fixed;
   text-align: center;
