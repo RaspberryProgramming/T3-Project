@@ -42,6 +42,23 @@
   font-family: "Times New Roman", Times, serif;
 }
 
+.logo-large {
+  width: 256px;
+  height: 256px;
+}
+
+main * {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
 a {
   text-decoration: none;
   color: black;
