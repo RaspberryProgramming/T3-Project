@@ -51,18 +51,26 @@
 main * {
   margin-top: 5px;
   margin-bottom: 5px;
-  margin-left: auto;
-  margin-right: auto;
 }
-
 main {
+  padding: 10px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 18px;
 }
 
 a {
   text-decoration: none;
   color: black;
+}
+
+body,
+html {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .changelog td {
@@ -75,9 +83,18 @@ a {
 .changelog tr {
   text-align: center;
 }
+.login {
+  margin-top: 20vh;
+}
+.login-list {
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 0;
+  list-style-type: none;
+}
 
 footer {
-  position: fixed;
+  margin-top: auto;
   text-align: center;
   background-color: #343a40;
   color: white;
