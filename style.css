@@ -57,13 +57,20 @@ a {
 .changelog tr {
   text-align: center;
 }
+
 footer {
   position: fixed;
   text-align: center;
-  background-color: gray;
+  background-color: #343a40;
+  color: white;
   bottom: 0px;
   left: 0px;
   right: 0px;
   margin-bottom: 0px;
   padding: 12px;
+  font-size: 14px;
+}
+
+footer a {
+  color: orange;
 }
