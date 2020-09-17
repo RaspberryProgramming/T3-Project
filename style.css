@@ -27,7 +27,7 @@
 .disclaimer-overlay {
   padding: 10rem;
   position: fixed;
-  visibility: hidden; /* Disabled overlay for now */
+  /*visibility: hidden; /* Disabled overlay for now */
   background-color: lightgray;
   width: 100%;
   height: 100%;
