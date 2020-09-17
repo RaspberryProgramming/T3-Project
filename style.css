@@ -5,7 +5,8 @@
 }
 
 .topofthepage {
-  background-image: url(HeaderBG.webp);
+  background-image: url(Header.webp);
+  background-size: cover;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
