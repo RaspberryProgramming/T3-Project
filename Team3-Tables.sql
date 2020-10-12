@@ -12,33 +12,33 @@ CREATE DATABASE IF NOT EXISTS site_db;
 
 USE site_db;
 
-DROP TABLE IF EXISTS t3_products;
+DROP TABLE IF EXISTS T3_products;
 
-CREATE TABLE t3_products (vendorID INT, productID INT AUTO_INCREMENT UNIQUE PRIMARY KEY, model TEXT, product TEXT, stock INT DEFAULT(0), description TEXT, price DOUBLE(10,2), active TINYINT);
+CREATE TABLE T3_products (vendorID INT, productID INT AUTO_INCREMENT UNIQUE PRIMARY KEY, model TEXT, product TEXT, stock INT DEFAULT(0), description TEXT, price DOUBLE(10,2), active TINYINT);
 
-INSERT INTO t3_products (vendorID, model, product, stock, description, price, active) VALUES
+INSERT INTO T3_products (vendorID, model, product, stock, description, price, active) VALUES
     (0, "1259216", "Steam Roller", 10, "Top of the line steam roller from Big Boyz Toyz. This steam roller has a v1 engine and loud sounds to make you think you're right on the job site like the old days.", 100.00, 1),
     (0, "1259216", "Dune Buggy", 3, "Big Boyz Toyz new and improved dune buggy can handle jumps of up to 20 meters, and drive at 20 mph", 123.45, 1),
     (1, "1578921", "Solar Roof Tiles", 2000, "First of it's kind, Lesla Solar Roof tiles can power two houses with the roof of one. Don't miss out on the opportunity it will provide your home", 2.39, 1),
     (1, "1578921", "Solar Panel", 300, "New and improved Solar Panals made by Lelsa Rotors. They can output a total of 100 Jigawatts of power with a 30 hz referesh rate.", 2.39, 1);
 
 
-DROP TABLE IF EXISTS t3_suppliers;
+DROP TABLE IF EXISTS T3_suppliers;
 
-CREATE TABLE t3_suppliers 
+CREATE TABLE T3_suppliers 
     (vendorID INT(11) PRIMARY KEY UNIQUE,
     vendorname TEXT,
     address TEXT,
     phone BigInt);
 
-INSERT INTO t3_suppliers
+INSERT INTO T3_suppliers
     VALUES
     (1, 'Lesla', '10 Washington Blvd Goshen NY', 8456662222),
     (0, 'Big Boyz Toyz', '20 North Rd Poughkeepsie NY', 8452221234);
 
-DROP TABLE IF EXISTS t3_users;
+DROP TABLE IF EXISTS T3_users;
 
-CREATE TABLE IF NOT EXISTS t3_users
+CREATE TABLE IF NOT EXISTS T3_users
 (   username VARCHAR(256) UNIQUE,
     pwHash TEXT,
     hashType TEXT,
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS t3_users
     active TINYINT,
     PRIMARY KEY(username));
 
-INSERT INTO t3_users VALUES
+INSERT INTO T3_users VALUES
 ("Danyluk", "secure", "none", "Admin", 1),
 ("Fioti", "password", "none", "Admin", 1),
 ("Figueroa", "ummm", "none", "Admin", 1),
@@ -57,10 +57,10 @@ INSERT INTO t3_users VALUES
 
 
 SELECT *
-FROM t3_products;
+FROM T3_products;
 
 SELECT *
-FROM  t3_users;
+FROM  T3_users;
 
 SELECT *
-FROM t3_suppliers;
+FROM T3_suppliers;
