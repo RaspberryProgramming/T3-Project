@@ -37,6 +37,10 @@
   overflow: scroll;
 }
 
+.navbar-brand img {
+  width: 32px;
+  height: 32px;
+}
 .changelogheader {
   font-size: 80px;
   font-style: "bold";
