@@ -8,7 +8,8 @@
   Email: admin@hardwareonline.com
 -->
 <?php
-define("FILE_VERSION", "1.0")
+  define("FILE_VERSION", "1.0");
+  define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +40,30 @@ define("FILE_VERSION", "1.0")
     ?>
 
     <main>
-    
+      <a href="/admin/phpinfo.php">
+        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">PHP INFO</strong>
+            <p class="card-text mb-auto">Displays infomation about php running on the server.</p>
+          </div>
+        </div>
+      </a>
+      <a href="/admin/dispusers.php">
+        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">DISPLAY USERS</strong>
+            <p class="card-text mb-auto">Displays infomation about users that exist on the server.</p>
+          </div>
+        </div>
+      </a>
+      <a href="/admin/projectdocument.php">
+        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">PROJECT DOCUMENTATION</strong>
+            <p class="card-text mb-auto">Displays the project documentation</p>
+          </div>
+        </div>
+      </a>
     </main>
 
     <?php

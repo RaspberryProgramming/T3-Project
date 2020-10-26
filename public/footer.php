@@ -11,7 +11,9 @@
         <a href="Disclaimer.php">Disclaimer</a>
 
         </div>
-      <p>(C) 2020 Fioti, Figueroa, Danyluk All Rights Reserved</p>
+      <p>(C) 2020 
+      <?php echo FILE_AUTHOR;?>  
+      All Rights Reserved</p>
       <?php
       echo "<p>Version: " . FILE_VERSION . "</p>";
       ?>

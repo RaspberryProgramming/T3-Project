@@ -8,7 +8,8 @@
   Email: admin@hardwareonline.com
 -->
 <?php
-define("FILE_VERSION", "1.0")
+  define("FILE_VERSION", "1.0");
+  define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +36,7 @@ define("FILE_VERSION", "1.0")
 
 
 
-<iframe src=documentation.pdf width=100% height=1000px></iframe>
+<iframe src=Documentation.pdf width=100% height=1000px></iframe>
 
 
     <?php

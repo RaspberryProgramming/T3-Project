@@ -8,8 +8,8 @@
   Email: admin@hardwareonline.com
 -->
 <?php
-  #PHP Constants
   define("FILE_VERSION", "1.0");
+  define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
 ?>
 <!DOCTYPE html>
 <html lang="en">
