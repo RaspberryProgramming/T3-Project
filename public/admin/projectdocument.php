@@ -30,17 +30,13 @@ define("FILE_VERSION", "1.0")
   </head>
   <body>
   <?php
-            if (strlen($_COOKIE["disclaimer"]) == 0 || $_COOKIE["disclaimer"]==False){
-              echo "<div class=\"disclaimer-overlay\" id=\"disclaimer-overlay\">";
-              include "../disclaimer-code.php";
-              echo "<button onclick=\"eulaAgree();\">I agree...</button></div>";
-            }
             include "../nav.php";
     ?>
 
-    <main>
-    
-    </main>
+
+
+<iframe src=documentation.pdf width=100% height=1000px></iframe>
+
 
     <?php
     include "../footer.php";
