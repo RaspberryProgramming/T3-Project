@@ -7,6 +7,9 @@
   Phone Number: 845-666-6969
   Email: admin@hardwareonline.com
 -->
+<?php
+  define("FILE_VERSION", "1.0");
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -41,11 +44,11 @@
       <p>Please enter your user name and password below</p>
 
       <ul class="login-list">
-        <li><input name="username" type="text" /></li>
-        <li><input name="password" type="text" /></li>
+        <li><input name="username" type="text" placeholder="Username" /></li>
+        <li><input name="password" type="text" placeholder="Password" /></li>
       </ul>
     </main>
-        <?php
+    <?php
     include "footer.php";
     ?>
 

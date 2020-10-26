@@ -7,6 +7,9 @@
   Phone Number: 845-666-6969
   Email: admin@hardwareonline.com
 -->
+<?php
+  define("FILE_VERSION", "1.0");
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
