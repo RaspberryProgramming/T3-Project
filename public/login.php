@@ -8,7 +8,7 @@
   Email: admin@hardwareonline.com
 -->
 <?php
-  define("FILE_VERSION", "1.0");
+  define("FILE_VERSION", "0.11");
   define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
 ?>
 <!DOCTYPE html>
