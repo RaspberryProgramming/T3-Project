@@ -28,7 +28,6 @@
 
     <title>Hardware Online</title>
   </head>
-
   <body>
     <?php
       if (strlen($_COOKIE["disclaimer"]) == 0 || $_COOKIE["disclaimer"]==False){
