@@ -86,6 +86,18 @@
             Created sql database
           </td>
         </tr>
+        <tr>
+          <td>V0.10</td>
+          <td>
+            Added admin panel
+          </td>
+        </tr>
+        <tr>
+          <td>V0.11</td>
+          <td>
+            Added header and footer files, and included them in every page.
+          </td>
+        </tr>
       </table>
     </main>
     <?php
