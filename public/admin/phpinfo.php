@@ -39,7 +39,10 @@ define("FILE_VERSION", "1.0")
     ?>
 
     <main>
-    
+      <p style="color: red;<?php echo "display:none;";?>">PHP is NOT WORKING</p>
+      <?php
+      echo "<p style='color:green;'>PHP is WORKING</p>";
+      ?>
     </main>
 
     <?php
