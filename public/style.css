@@ -77,14 +77,24 @@ html {
   flex-direction: column;
 }
 
-.changelog td {
-  padding: 2px;
+table * {
+  border-color: lightgray;
 }
-.changelog th {
+
+table {
+  border-color: white;
+  border-radius: 5px;
+}
+
+td {
+  padding: 4px;
+}
+th {
+  padding: 4px;
   background-color: lightgray;
 }
 
-.changelog tr {
+tr {
   text-align: center;
 }
 .login {
