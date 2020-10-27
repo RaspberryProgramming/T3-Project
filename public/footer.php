@@ -6,9 +6,9 @@
           <a href="mailto:admin@hardwareonline.com">admin@hardwareonline.com</a>
         </p>
           |
-        <a href="Changelog.php">Changelog</a>
+        <a href="/Changelog.php">Changelog</a>
           |
-        <a href="Disclaimer.php">Disclaimer</a>
+        <a href="/Disclaimer.php">Disclaimer</a>
 
         </div>
       <p>(C) 2020 
