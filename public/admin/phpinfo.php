@@ -40,9 +40,9 @@
     ?>
 
     <main>
-      <p style="color: red;<?php echo "display:none;";?>">PHP is NOT WORKING</p>
+      <h1 style="color: red;<?php echo "display:none;";?>">PHP is NOT WORKING</h1>
       <?php
-      echo "<p style='color:green;'>PHP is WORKING</p>";
+      echo "<h1 style='color:green;'>PHP is WORKING</h1>";
       ?>
     </main>
 
