@@ -31,13 +31,13 @@
   </head>
   <body>
   <?php
-            include "../nav.php";
-    ?>
+    include "../nav.php";
+  ?>
 
 
-
-<iframe src=Documentation.pdf width=100% height=1000px></iframe>
-
+  <main style="padding-top:0;">
+  <iframe src=Documentation.pdf width=100% height=600px></iframe>
+  </main>
 
     <?php
     include "../footer.php";
