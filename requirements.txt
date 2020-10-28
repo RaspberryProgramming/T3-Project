@@ -1,0 +1,1 @@
+sudo apt install php php-cgi php-mysql mysql-server
