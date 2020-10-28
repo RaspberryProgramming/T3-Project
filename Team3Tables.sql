@@ -10,6 +10,10 @@
 
 CREATE DATABASE IF NOT EXISTS site_db;
 
+CREATE USER IF NOT EXISTS 'mike'@'localhost' IDENTIFIED BY 'easysteps';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON site_db.* TO 'mike'@'localhost';
+
 USE site_db;
 
 DROP TABLE IF EXISTS T3_products;
