@@ -108,6 +108,7 @@ tr {
 }
 
 .flex-col {
+  flex-wrap: wrap;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
