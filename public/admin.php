@@ -31,36 +31,36 @@
   </head>
   <body>
   <?php
-            if (strlen($_COOKIE["disclaimer"]) == 0 || $_COOKIE["disclaimer"]==False){
-              echo "<div class=\"disclaimer-overlay\" id=\"disclaimer-overlay\">";
-              include "disclaimer-code.php";
-              echo "<button onclick=\"eulaAgree();\">I agree...</button></div>";
-            }
-            include "nav.php";
+  require "../connect_db.php";
+
+  if (strlen($_COOKIE["disclaimer"]) == 0 || $_COOKIE["disclaimer"]==False){
+    echo "<div class=\"disclaimer-overlay\" id=\"disclaimer-overlay\">";
+    include "disclaimer-code.php";
+    echo "<button onclick=\"eulaAgree();\">I agree...</button></div>";
+  }
+  include "nav.php";
     ?>
 
-    <main>
-      <a href="/admin/phpinfo.php">
+    <main  class="flex-col">
+      <div>
         <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-flex flex-column position-static">
             <strong class="d-inline-block mb-2 text-primary">PHP INFO</strong>
-            <p class="card-text mb-auto">Displays infomation about php running on the server.</p>
+            <p class="card-text mb-auto"><?php include "admin/phpinfo.php"?></p>
           </div>
         </div>
-      </a>
-      <a href="/admin/dispusers.php">
         <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-flex flex-column position-static">
             <strong class="d-inline-block mb-2 text-primary">DISPLAY USERS</strong>
-            <p class="card-text mb-auto">Displays infomation about users that exist on the server.</p>
+            <p class="card-text mb-auto"><?php include "admin/dispusers.php"; ?></p>
           </div>
         </div>
-      </a>
+        </div>
       <a href="/admin/projectdocument.php">
         <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-flex flex-column position-static">
             <strong class="d-inline-block mb-2 text-primary">PROJECT DOCUMENTATION</strong>
-            <p class="card-text mb-auto">Displays the project documentation</p>
+            <p class="card-text mb-auto">Click to view project documentation</p>
           </div>
         </div>
       </a>

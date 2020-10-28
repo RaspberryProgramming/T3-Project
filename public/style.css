@@ -107,6 +107,20 @@ tr {
   list-style-type: none;
 }
 
+.flex-col {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width:100%;
+}
+
+.flex-col *{
+  height: -moz-fit-content;
+  height: -webkit-fit-content;
+  height: -fit-content;
+
+}
+
 footer {
   margin-top: auto;
   text-align: center;
