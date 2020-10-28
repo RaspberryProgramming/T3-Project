@@ -115,12 +115,13 @@ tr {
   width:100%;
 }
 
-.flex-col *{
+.flex-col-item{
   height: -moz-fit-content;
   height: -webkit-fit-content;
   height: -fit-content;
-
+  min-width: 30rem;
 }
+
 
 footer {
   margin-top: auto;

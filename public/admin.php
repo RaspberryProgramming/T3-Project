@@ -42,21 +42,19 @@
     ?>
 
     <main  class="flex-col">
-      <div>
-        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="flex-col-item row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-flex flex-column position-static">
             <strong class="d-inline-block mb-2 text-primary">PHP INFO</strong>
-            <p class="card-text mb-auto"><?php include "admin/phpinfo.php"?></p>
+            <p class="card-text mb-auto"><?php include "./admin/phpinfo.php"?></p>
           </div>
         </div>
-        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="flex-col-item row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-flex flex-column position-static">
             <strong class="d-inline-block mb-2 text-primary">DISPLAY USERS</strong>
-            <p class="card-text mb-auto"><?php include "admin/dispusers.php"; ?></p>
+            <p class="card-text mb-auto"><?php include "./admin/dispusers.php"; ?></p>
           </div>
         </div>
-        </div>
-      <a href="/admin/projectdocument.php">
+      <a class="flex-col-item" href="/admin/projectdocument.php">
         <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-flex flex-column position-static">
             <strong class="d-inline-block mb-2 text-primary">PROJECT DOCUMENTATION</strong>
