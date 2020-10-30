@@ -15,6 +15,6 @@
       <?php echo FILE_AUTHOR;?>  
       All Rights Reserved</p>
       <?php
-      echo "<p>Version: " . FILE_VERSION . "</p>";
+      echo "<p>Version: <a href='/Changelog.php'>" . FILE_VERSION . "</a></p>";
       ?>
 </footer>
