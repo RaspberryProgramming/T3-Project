@@ -1,24 +1,34 @@
 <?php
 
-$table = "T3_users";
+    $table = "T3_users";
 
-$q = "SELECT * FROM $table";
+    $r = mysqli_query($dbc, "SELECT * FROM $table");
 
-$r = mysqli_query ($dbc, $q);
+    if ($r) 
+    {
+      $e = mysqli_query($dbc, "EXPLAIN $table");
+      echo "<table border=1><tr>";
+
+      while($explain = mysqli_fetch_array( $e, MYSQLI_NUM)){
+          echo "<th> $explain[0] </th>";
+      }
+
+      echo "</tr>";      
 
 
-echo "<table border=1> <th>Name</th> <th>Password</th> <th>Hashtype</th> <th>Rank ID</th> <th>Active</th>";
+      while ($row = mysqli_fetch_array( $r, MYSQLI_NUM)) {
+          echo "<tr>";
+          $length = count($row);
+          for ($i=0; $i<$length; $i++){
+          	echo "<td>$row[$i]</td>";
+          }
+          echo "</tr>";
+      } 
 
-if ($r) 
-  {
-  while ($row = mysqli_fetch_array( $r, MYSQLI_NUM)) {
-      echo "<tr> <td>$row[0]</td> <td>$row[1]</td>". 
-                    "<td>$row[2]</td> <td>$row[3]</td><td>$row[4]</td></tr>";
-  } 
-
-  echo "</table>";
-}
-else {
-    echo "<br>Database Error!!!";
-}		
+      echo "</table>";
+    }
+    else {
+        echo "<br>Database Error!!!";
+    }
 ?>
+
