@@ -31,10 +31,11 @@
   </head>
   <body>
   <?php
+    # Includes the navbar
     include "../nav.php";
   ?>
 
-
+  <!-- Uses iframe to display the documentation-->
   <main style="padding-top:0;">
   <iframe src=Documentation.pdf width=100% height=600px></iframe>
   </main>
