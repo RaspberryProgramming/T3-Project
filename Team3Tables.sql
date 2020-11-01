@@ -18,7 +18,15 @@ USE site_db;
 
 DROP TABLE IF EXISTS T3_products;
 
-CREATE TABLE T3_products (vendorID INT, productID INT AUTO_INCREMENT UNIQUE PRIMARY KEY, model TEXT, product TEXT, stock INT DEFAULT(0), description TEXT, price DOUBLE(10,2), active TINYINT);
+CREATE TABLE T3_products (
+    vendorID INT,
+    productID INT AUTO_INCREMENT UNIQUE PRIMARY KEY,
+    model TEXT,
+    product TEXT,
+    stock INT DEFAULT(0),
+    description TEXT,
+    price DOUBLE(10,2),
+    active TINYINT);
 
 INSERT INTO T3_products (vendorID, model, product, stock, description, price, active) VALUES
     (0, "1259216", "Steam Roller", 10, "Top of the line steam roller from Big Boyz Toyz. This steam roller has a v1 engine and loud sounds to make you think you're right on the job site like the old days.", 100.00, 1),
