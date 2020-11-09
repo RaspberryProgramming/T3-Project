@@ -31,7 +31,7 @@
   </head>
   <body>
   <?php
-  require "../connect_db.php";
+  require "connect_db.php";
 
   if (strlen($_COOKIE["disclaimer"]) == 0 || $_COOKIE["disclaimer"]==False){
     echo "<div class=\"disclaimer-overlay\" id=\"disclaimer-overlay\">";
