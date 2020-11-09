@@ -41,12 +41,13 @@ CREATE TABLE T3_suppliers
     (vendorID INT(11) PRIMARY KEY UNIQUE,
     vendorname TEXT,
     address TEXT,
-    phone BigInt);
+    phone BigInt,
+    active TINYINT DEFAULT 1);
 
 INSERT INTO T3_suppliers
     VALUES
-    (1, 'Lesla', '10 Washington Blvd Goshen NY', 8456662222),
-    (0, 'Big Boyz Toyz', '20 North Rd Poughkeepsie NY', 8452221234);
+    (1, 'Lesla', '10 Washington Blvd Goshen NY', 8456662222, 1),
+    (0, 'Big Boyz Toyz', '20 North Rd Poughkeepsie NY', 8452221234, 1);
 
 DROP TABLE IF EXISTS T3_users;
 
