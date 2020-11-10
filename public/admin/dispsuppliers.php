@@ -22,7 +22,7 @@
             echo "<tr>";
             
             # Print each element of that row
-            $length = count($row) + 1;
+            $length = count($row);
             for ($i=0; $i<$length; $i++){
                 echo "<td>$row[$i]</td>";
             }
