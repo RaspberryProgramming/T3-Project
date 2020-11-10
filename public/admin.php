@@ -60,6 +60,12 @@
             <p class="card-text mb-auto"><?php include "./admin/dispsuppliers.php"; ?></p>
           </div>
         </div>
+        <div class="flex-col-item row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">UPDATE TABLES</strong>
+            <p class="card-text mb-auto"><?php include "./admin/updTable.php"; ?></p>
+          </div>
+        </div>
       <a class="flex-col-item" href="/admin/projectdocument.php">
         <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-flex flex-column position-static">
