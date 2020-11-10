@@ -53,20 +53,23 @@ INSERT INTO T3_suppliers
 DROP TABLE IF EXISTS T3_users;
 
 CREATE TABLE IF NOT EXISTS T3_users
-(   username VARCHAR(256) UNIQUE,
+(
+    userID INT AUTO_INCREMENT UNIQUE PRIMARY KEY,
+    username VARCHAR(256) UNIQUE,
     pwHash TEXT,
     hashType TEXT,
     rankID ENUM("Admin", "Employee", "Shareholder", "Customer"),
     active TINYINT,
-    PRIMARY KEY(username));
+    datechanged DATE
+    );
 
-INSERT INTO T3_users VALUES
-("Danyluk", "secure", "none", "Admin", 1),
-("Fioti", "password", "none", "Admin", 1),
-("Figueroa", "ummm", "none", "Admin", 1),
-("aptokash", "ADMIN", "none", "Shareholder", 1),
-("AJMarone", "password", "none", "Customer", 1),
-("JamesCameron", "password", "none", "Employee", 1);
+INSERT INTO T3_users (username, pwHash, hashType, rankID, active, datechanged) VALUES 
+("Danyluk", "secure", "none", "Admin", 1, CURRENT_DATE),
+("Fioti", "password", "none", "Admin", 1, CURRENT_DATE),
+("Figueroa", "ummm", "none", "Admin", 1, CURRENT_DATE),
+("aptokash", "ADMIN", "none", "Shareholder", 1, CURRENT_DATE),
+("AJMarone", "password", "none", "Customer", 1, CURRENT_DATE),
+("JamesCameron", "password", "none", "Employee", 1, CURRENT_DATE);
 
 
 
