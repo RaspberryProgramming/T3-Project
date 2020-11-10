@@ -11,6 +11,7 @@
   define("FILE_VERSION", "0.11");
   define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -29,6 +30,7 @@
 
     <title>Hardware Online</title>
   </head>
+
   <body>
   <?php
   require "connect_db.php";
@@ -42,6 +44,13 @@
     ?>
 
 <?php
+    echo "<form action='updTable.php' method='POST'> <br>";
+    echo "<input type='radio' name='sort' value='users'>   USERS  ";
+    echo "<input type='radio' name='sort' value='suppliers'>   SUPPLIERS  ";
+    echo "<input type='radio' name='sort' value='products'>   PRODUCTS  ";
+    echo "<br> <input type='submit' value='TABLE'>";
+    echo "</form>";
+
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         action_handler();
     }
@@ -50,8 +59,6 @@
     }
 
     function action() {
-      echo "<br>Running our ACTION code"; 
-
       echo "<form action='updTable.php' method='POST'>";
       echo "<br> Print Name <input type='text' name='name'>";
       echo "<br> Artist <input type='text' name='artist'>";
@@ -65,12 +72,11 @@
       $artist = $_POST["artist"];
       $price = $_POST["price"];
 
-      echo "<br>Running our ACTION HANDLER code";
       echo "<br> Name was entered: $name";
       echo "<br> Artist was entered: $artist";
       echo "<br> Price was entered: $price";
 
-      require "../connect_db.php";
+      require "connect_db.php";
       $q = "INSERT INTO PRINTS (name, artist, price)"."VALUES('$name','$artist',$price) ;";
       $r = mysqli_query ($dbc,$q);
 
@@ -82,3 +88,16 @@
       }
     }
 ?>
+
+<?php
+    include "footer.php";
+?>
+
+    <!-- Place scripts at bottom of page so page renders faster -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
