@@ -13,12 +13,22 @@
     $r = mysqli_query($dbc, $q);
 
     echo "<table border=1 style='margin-right: auto; margin-left: auto; margin-top: auto; margin-bottom: auto'>
-    <tr> <th> ID </th> <th> Name </th> <th> Address </th> <th> Phone </th> <th> Email </th> <th> ACTIVE? </th> </tr>";
+    <tr> <th> ID </th> <th> Name </th> <th> Address </th> <th> Phone </th> <th> Email </th> <th> Active </th> </tr>";
 
     if ($r) {
-        while ($row = mysqli_fetch_array($r, MYSQLI_NUM)) {
-            echo "<tr> <td> $row[0] </td> <td> $row[1] </td> <td> $row[2] </td> <td> $row[3] </td> <td> $row[4] </td> </tr>";
-        }
+        # Takes each row and prints each of it's elements in order
+        while ($row = mysqli_fetch_array( $r, MYSQLI_NUM)) {
+            # Start the table row
+            echo "<tr>";
+            
+            # Print each element of that row
+            $length = count($row);
+            for ($i=0; $i<$length; $i++){
+                echo "<td>$row[$i]</td>";
+            }
+            echo "</tr>";
+        } 
+
         echo "</table>";
     }
     else {
