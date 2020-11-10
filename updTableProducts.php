@@ -44,13 +44,6 @@
     ?>
 
 <?php
-    echo "<form action='updTable.php' method='POST'> <br>";
-    echo "<input type='radio' name='sort' value='users'>   USERS  ";
-    echo "<input type='radio' name='sort' value='suppliers'>   SUPPLIERS  ";
-    echo "<input type='radio' name='sort' value='products'>   PRODUCTS  ";
-    echo "<br> <input type='submit' value='TABLE'>";
-    echo "</form>";
-
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         action_handler();
     }
