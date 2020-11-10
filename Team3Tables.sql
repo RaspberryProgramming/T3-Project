@@ -26,7 +26,7 @@ CREATE TABLE T3_products (
     stock INT DEFAULT(0),
     description TEXT,
     price DOUBLE(10,2),
-    active TINYINT);
+    active TINYINT DEFAULT 1);
 
 INSERT INTO T3_products (vendorID, model, product, stock, description, price, active) VALUES
     (0, "1259216", "Steam Roller", 10, "Top of the line steam roller from Big Boyz Toyz. This steam roller has a v1 engine and loud sounds to make you think you're right on the job site like the old days.", 100.00, 1),
@@ -38,7 +38,7 @@ INSERT INTO T3_products (vendorID, model, product, stock, description, price, ac
 DROP TABLE IF EXISTS T3_suppliers;
 
 CREATE TABLE T3_suppliers 
-    (vendorID INT(11) PRIMARY KEY UNIQUE,
+    (vendorID INT(11) AUTO_INCREMENT PRIMARY KEY UNIQUE,
     vendorname TEXT,
     address TEXT,
     phone BigInt,
@@ -59,8 +59,8 @@ CREATE TABLE IF NOT EXISTS T3_users
     pwHash TEXT,
     hashType TEXT,
     rankID ENUM("Admin", "Employee", "Shareholder", "Customer"),
-    active TINYINT,
-    datechanged DATE
+    active TINYINT DEFAULT 1,
+    datechanged DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     );
 
 INSERT INTO T3_users (username, pwHash, hashType, rankID, active, datechanged) VALUES 
