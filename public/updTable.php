@@ -52,7 +52,7 @@
     function action() {
       echo "<br>Running our ACTION code"; 
 
-      echo "<form action='11E-Danyluk.php' method='POST'>";
+      echo "<form action='updTable.php' method='POST'>";
       echo "<br> Print Name <input type='text' name='name'>";
       echo "<br> Artist <input type='text' name='artist'>";
       echo "<br> Price <input type='text' name='price'>";
