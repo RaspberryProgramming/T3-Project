@@ -1,97 +1,92 @@
-<!--
-  Hardware Online
-  
-  Authors: Fioti, Figueroa, Danyluk
-
-  We are located at 12345 Poughkeepsie Lane, Poughkeepsie New York 12550
-  Phone Number: 845-666-6969
-  Email: admin@hardwareonline.com
--->
 <?php
-  define("FILE_VERSION", "0.11");
-  define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
-?>
+    
+$table = "T3_products"; # stores which table that will be added to
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="Description" content=" Main webpage of Hardware Online" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="style.css" />
+if ($_SERVER['REQUEST_METHOD'] == "POST"){
+    $vendorid = $_POST["vendorID"];
+    $model = $_POST["model"];
+    $product = $_POST["product"];
+    $description = $_POST["description"];
+    $price = $_POST["price"];
 
-    <title>Hardware Online</title>
-  </head>
+    switch (""){
+      case $vendorid:
+        $display_message = "Vendor value missing";
+        break;
+      
+      case $model:
+        $display_message = "Model value missing";
+        break;
+      
+      case $product:
+        $display_message = "Product value missing";
+        break;
+      
+      case $description:
+        $display_message = "Description value missing";
+        break;
+      
+      case $price:
+        $display_message = "Price value missing";
+        break;
 
-  <body>
-  <?php
-  require "connect_db.php";
+      default:
+        if(gettype(floatval($price)) != "double"){
+          echo gettype(floatval($price));
+          $display_message = "Invalid datatype of price";
+        } else if (strlen($model) < 4){
+            $display_message = "Model is less than 4 characters long";
+        } else if (strlen($description) < 5){
+            $display_message = "Description is less than 5 characters long";
+        }
+    }
 
-  if (strlen($_COOKIE["disclaimer"]) == 0 || $_COOKIE["disclaimer"]==False){
-    echo "<div class=\"disclaimer-overlay\" id=\"disclaimer-overlay\">";
-    include "disclaimer-code.php";
-    echo "<button onclick=\"eulaAgree();\">I agree...</button></div>";
-  }
-  include "nav.php";
-    ?>
+} else {
+    $vendorid = $model = $product = $description = $price = "";
+}
 
-<?php
-    $table = "T3_products";
 
-    if ($_SERVER['REQUEST_METHOD'] == "POST") {
-        action_handler();
+
+if ($_SERVER['REQUEST_METHOD'] == "POST" AND $display_message == "") { # If the user is submitting the form
+
+    
+    
+    # Insert new entry into form
+    $q = "INSERT INTO $table (vendorID, model, product, description, price)"."VALUES('$vendorid', '$model', '$product', '$description', '$price');";
+    $r = mysqli_query ($dbc,$q);
+
+    if ($r) {
+        echo "<a href='' class='btn btn-success'>Add Another</a>";
+        $script = $_SERVER['SCRIPT_NAME'];
+        echo "<form action='$script' method='POST'>";
+        echo "<input type='hidden' name='table' value='$table'>";
+        echo "<input type='submit' value='Go back to table' class='btn btn-success'>";
     }
     else {
-        action();
+        echo mysqli_error($dbc);
     }
 
-    function action() {
-      echo "<form action='updTable.php' method='POST'>";
-      echo "<br> Vendor ID <input type='text' name='vendorid'>";
-      echo "<br> Model <input type='text' name='model'>";
-      echo "<br> Product <input type='text' name='product'>";
-      echo "<br> Description <input type='text' name='description'>";
-      echo "<br> Price <input type='text' name='price'>";
-      echo "<br> <input type='submit'>";
-      echo "</form>";
+}
+else {
+    
+    $r = mysqli_query($dbc, "SELECT * FROM T3_suppliers;"); # Query the table for it's entries
+    if ($r){
+        echo "<form action='' method='POST'>";
+        echo "<br> Vendor ID: <select id='vendorID' name='vendorID' >";
+        while ($row = mysqli_fetch_array( $r, MYSQLI_NUM)) {
+            echo "<option value='$row[0]'>$row[1]</option>";
+        } 
+
+        echo "</select> ";
+        echo "<br> Model <input type='text' name='model' value='$model'>";
+        echo "<br> Product <input type='text' name='product' value='$product'>";
+        echo "<br> Description <input type='text' name='description' value='$description'>";
+        echo "<br> Price $<input type='number' step='0.01' name='price' value='$price'>";
+        echo "<br> <input type='submit' class='btn btn-secondary'>";
+        echo "</form>";
+    } else {
+
     }
-
-    function action_handler() { 	 
-      $vendorid = $_POST["vendorid"];
-      $model = $_POST["model"];
-      $product = $_POST["product"];
-      $description = $_POST["description"];
-      $price = $_POST["price"];
-
-      $q = "INSERT INTO $table (vendorID, model, product, description, price)"."VALUES($vendorid, '$model', '$product', '$description', $price) ;";
-      $r = mysqli_query ($dbc,$q);
-
-      if ($r) {
-          echo "<br>Data inserted!";
-      }
-      else {
-          echo "<li>".mysqli_error($dbc)."</li>";
-      }
-    }
+    
+}
 ?>
-
-<?php
-    include "footer.php";
-?>
-
-    <!-- Place scripts at bottom of page so page renders faster -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
-</body>
-
-</html>
