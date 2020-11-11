@@ -44,6 +44,8 @@
     ?>
 
 <?php
+    $table = "T3_suppliers";
+
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         action_handler();
     }
@@ -53,28 +55,25 @@
 
     function action() {
       echo "<form action='updTable.php' method='POST'>";
-      echo "<br> Print Name <input type='text' name='name'>";
-      echo "<br> Artist <input type='text' name='artist'>";
-      echo "<br> Price <input type='text' name='price'>";
+      echo "<br> Name <input type='text' name='name'>";
+      echo "<br> Address <input type='text' name='address'>";
+      echo "<br> Phone <input type='text' name='phone'>";
+      echo "<br> Email <input type='text' name='email'>";
       echo "<br> <input type='submit'>";
       echo "</form>";
     }
 
     function action_handler() { 	 
       $name = $_POST["name"];
-      $artist = $_POST["artist"];
-      $price = $_POST["price"];
+      $address = $_POST["address"];
+      $phone = $_POST["phone"];
+      $email = $_POST["email"];
 
-      echo "<br> Name was entered: $name";
-      echo "<br> Artist was entered: $artist";
-      echo "<br> Price was entered: $price";
-
-      require "connect_db.php";
-      $q = "INSERT INTO PRINTS (name, artist, price)"."VALUES('$name','$artist',$price) ;";
+      $q = "INSERT INTO $table (name, address, phone, email)"."VALUES('$name', '$address', $phone, '$email') ;";
       $r = mysqli_query ($dbc,$q);
 
       if ($r) {
-          echo "<br>Data inserted!";
+          echo "<br>Data successfully inserted!";
       }
       else {
           echo "<li>".mysqli_error($dbc)."</li>";

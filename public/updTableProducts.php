@@ -44,6 +44,8 @@
     ?>
 
 <?php
+    $table = "T3_products";
+
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         action_handler();
     }
@@ -53,24 +55,23 @@
 
     function action() {
       echo "<form action='updTable.php' method='POST'>";
-      echo "<br> Print Name <input type='text' name='name'>";
-      echo "<br> Artist <input type='text' name='artist'>";
+      echo "<br> Vendor ID <input type='text' name='vendorid'>";
+      echo "<br> Model <input type='text' name='model'>";
+      echo "<br> Product <input type='text' name='product'>";
+      echo "<br> Description <input type='text' name='description'>";
       echo "<br> Price <input type='text' name='price'>";
       echo "<br> <input type='submit'>";
       echo "</form>";
     }
 
     function action_handler() { 	 
-      $name = $_POST["name"];
-      $artist = $_POST["artist"];
+      $vendorid = $_POST["vendorid"];
+      $model = $_POST["model"];
+      $product = $_POST["product"];
+      $description = $_POST["description"];
       $price = $_POST["price"];
 
-      echo "<br> Name was entered: $name";
-      echo "<br> Artist was entered: $artist";
-      echo "<br> Price was entered: $price";
-
-      require "connect_db.php";
-      $q = "INSERT INTO PRINTS (name, artist, price)"."VALUES('$name','$artist',$price) ;";
+      $q = "INSERT INTO $table (vendorID, model, product, description, price)"."VALUES($vendorid, '$model', '$product', '$description', $price) ;";
       $r = mysqli_query ($dbc,$q);
 
       if ($r) {

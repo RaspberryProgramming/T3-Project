@@ -44,6 +44,8 @@
     ?>
 
 <?php
+    $table = "T3_users";
+
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         action_handler();
     }
@@ -53,28 +55,25 @@
 
     function action() {
       echo "<form action='updTable.php' method='POST'>";
-      echo "<br> Print Name <input type='text' name='name'>";
-      echo "<br> Artist <input type='text' name='artist'>";
-      echo "<br> Price <input type='text' name='price'>";
+      echo "<br> UserName <input type='text' name='username'>";
+      echo "<br> Password Hash <input type='text' name='pwhash'>";
+      echo "<br> Hash Type <input type='text' name='hashtype'>";
+      echo "<br> Rank ID <input type='text' name='rankid'>";
       echo "<br> <input type='submit'>";
       echo "</form>";
     }
 
     function action_handler() { 	 
-      $name = $_POST["name"];
-      $artist = $_POST["artist"];
-      $price = $_POST["price"];
+      $username = $_POST["username"];
+      $pwHash = $_POST["pwhash"];
+      $hashType = $_POST["hashtype"];
+      $rankID = $_POST["rankid"];
 
-      echo "<br> Name was entered: $name";
-      echo "<br> Artist was entered: $artist";
-      echo "<br> Price was entered: $price";
-
-      require "connect_db.php";
-      $q = "INSERT INTO PRINTS (name, artist, price)"."VALUES('$name','$artist',$price) ;";
+      $q = "INSERT INTO $table (username, pwHash, hashType, rankID)"."VALUES('$username', '$pwHash', $hashType, '$rankID') ;";
       $r = mysqli_query ($dbc,$q);
 
       if ($r) {
-          echo "<br>Data inserted!";
+          echo "<br>Data successfully inserted!";
       }
       else {
           echo "<li>".mysqli_error($dbc)."</li>";
