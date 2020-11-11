@@ -19,8 +19,8 @@ USE site_db;
 DROP TABLE IF EXISTS T3_products;
 
 CREATE TABLE T3_products (
-    vendorID INT,
     productID INT AUTO_INCREMENT UNIQUE PRIMARY KEY,
+    vendorID INT,
     model TEXT,
     product TEXT,
     stock INT DEFAULT(0),
