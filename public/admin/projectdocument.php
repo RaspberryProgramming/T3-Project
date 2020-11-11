@@ -7,10 +7,6 @@
   Phone Number: 845-666-6969
   Email: admin@hardwareonline.com
 -->
-<?php
-  define("FILE_VERSION", "0.11");
-  define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -33,6 +29,8 @@
   <?php
     # Includes the navbar
     include "../nav.php";
+  define("FILE_VERSION", "0.12");
+  define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
   ?>
 
   <!-- Uses iframe to display the documentation-->

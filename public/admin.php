@@ -3,14 +3,12 @@
   
   Authors: Fioti, Figueroa, Danyluk
 
+  Version: 1.12
+
   We are located at 12345 Poughkeepsie Lane, Poughkeepsie New York 12550
   Phone Number: 845-666-6969
   Email: admin@hardwareonline.com
 -->
-<?php
-  define("FILE_VERSION", "0.11");
-  define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -32,6 +30,9 @@
   <body>
   <?php
   require "connect_db.php";
+
+  define("FILE_VERSION", "0.12");
+  define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
 
   if (strlen($_COOKIE["disclaimer"]) == 0 || $_COOKIE["disclaimer"]==False){
     echo "<div class=\"disclaimer-overlay\" id=\"disclaimer-overlay\">";

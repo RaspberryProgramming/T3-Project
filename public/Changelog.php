@@ -8,7 +8,7 @@
   Email: admin@hardwareonline.com
 -->
 <?php
-  define("FILE_VERSION", "0.11");
+  define("FILE_VERSION", "0.12");
   define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
 ?>
 <!DOCTYPE html>
@@ -96,6 +96,12 @@
           <td>V0.11</td>
           <td>
             Added header and footer files, and included them in every page.
+          </td>
+        </tr>
+        <tr>
+          <td>V0.12</td>
+          <td>
+            Added Admin page with table editor, project documentation and php info.
           </td>
         </tr>
       </table>
