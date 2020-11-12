@@ -115,7 +115,7 @@ if (!isset($id)){ # If id is not set, display a list of products
         
         echo "<h1>Shop</h1>";
 
-        echo "<table style='width:100%;'>";
+        echo "<table class='shop-table'>";
         
 
         # Takes each row and prints each of it's elements in order
