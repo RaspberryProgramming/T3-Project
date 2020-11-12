@@ -31,7 +31,7 @@
   <body>
 <?php
 # Global Variable Definitions
-define("FILE_AUTHOR", "Camerin Figueroa");
+define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
 define("FILE_VERSION", 1.12);
 
 #Import code
