@@ -104,6 +104,12 @@
             Added Admin page with table editor, project documentation and php info.
           </td>
         </tr>
+        <tr>
+          <td>V0.13</td>
+          <td>
+            Added shop to website with product page functionality.
+          </td>
+        </tr>
       </table>
     </main>
     <?php
