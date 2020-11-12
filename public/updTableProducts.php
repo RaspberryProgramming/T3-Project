@@ -8,6 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $product = $_POST["product"];
     $description = $_POST["description"];
     $price = $_POST["price"];
+    $stock = $_POST["stock"];
 
     switch (""){
       case $vendorid:
@@ -30,10 +31,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
         $display_message = "Price value missing";
         break;
 
+      case $stock:
+        $display_message = "Stock value missing";
+
       default:
         if(gettype(floatval($price)) != "double"){
-          echo gettype(floatval($price));
-          $display_message = "Invalid datatype of price";
+          $display_message = "Invalid price";
+        } else if (preg_match("/[a-z]/i", $stock)){
+          $display_message = "Stock cannot have letters";
         } else if (strlen($model) < 4){
             $display_message = "Model is less than 4 characters long";
         } else if (strlen($description) < 5){
@@ -42,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     }
 
 } else {
-    $vendorid = $model = $product = $description = $price = "";
+    $vendorid = $model = $product = $description = $price = $stock = "";
 }
 
 
@@ -52,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" AND $display_message == "") { # If the 
     
     
     # Insert new entry into form
-    $q = "INSERT INTO $table (vendorID, model, product, description, price)"."VALUES('$vendorid', '$model', '$product', '$description', '$price');";
+    $q = "INSERT INTO $table (vendorID, model, product, description, price, stock)"."VALUES('$vendorid', '$model', '$product', '$description', '$price', '$stock');";
     $r = mysqli_query ($dbc,$q);
 
     if ($r) {
@@ -82,6 +87,7 @@ else {
         echo "<br> Product <input type='text' name='product' value='$product'>";
         echo "<br> Description <input type='text' name='description' value='$description'>";
         echo "<br> Price $<input type='number' step='0.01' name='price' value='$price'>";
+        echo "<br> Stock <input type='number' name='stock' value='$stock'>";
         echo "<br> <input type='submit' class='btn btn-secondary'>";
         echo "</form>";
     } else {
