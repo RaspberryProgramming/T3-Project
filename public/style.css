@@ -124,6 +124,18 @@ select {
   border-color: lightgray;
   color: black;
 }
+.carousel-caption{
+  bottom: 30%;
+}
+
+.carousel-caption .text{
+  border-radius: 4px;
+  padding: 4px;
+  background-color: black;
+  display: inline-flex;
+  flex-direction: column;
+}
+
 main * {
   margin-top: 5px;
   margin-bottom: 5px;
