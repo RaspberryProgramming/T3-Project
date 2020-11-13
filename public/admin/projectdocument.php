@@ -1,6 +1,6 @@
 <!--
   Hardware Online
-  
+
   Authors: Fioti, Figueroa, Danyluk
 
   We are located at 12345 Poughkeepsie Lane, Poughkeepsie New York 12550
@@ -27,11 +27,11 @@
   </head>
   <body>
   <?php
-    # Includes the navbar
-    include "../nav.php";
-  define("FILE_VERSION", "0.12");
-  define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
-  ?>
+# Includes the navbar
+include "../nav.php";
+define("FILE_VERSION", "0.12");
+define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
+?>
 
   <!-- Uses iframe to display the documentation-->
   <main style="padding-top:0;">
@@ -39,8 +39,8 @@
   </main>
 
     <?php
-    include "../footer.php";
-    ?>
+include "../footer.php";
+?>
 
     <!-- Place scripts at bottom of page so page renders faster -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

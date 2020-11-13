@@ -1,6 +1,6 @@
 <!--
   Hardware Online
-  
+
   Authors: Fioti, Figueroa, Danyluk
 
   We are located at 12345 Poughkeepsie Lane, Poughkeepsie New York 12550
@@ -8,8 +8,8 @@
   Email: admin@hardwareonline.com
 -->
 <?php
-  define("FILE_VERSION", "0.11");
-  define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
+define("FILE_VERSION", "0.11");
+define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,13 +31,13 @@
   </head>
   <body>
     <?php
-      if (strlen($_COOKIE["disclaimer"]) == 0 || $_COOKIE["disclaimer"]==False){
-        echo "<div class=\"disclaimer-overlay\" id=\"disclaimer-overlay\">";
-        include "disclaimer-code.php";
-        echo "<button onclick=\"eulaAgree();\">I agree...</button></div>";
-      }
-      include "nav.php";
-    ?>
+if (strlen($_COOKIE["disclaimer"]) == 0 || $_COOKIE["disclaimer"] == false) {
+    echo "<div class='disclaimer-overlay' id='disclaimer-overlay'>";
+    include "disclaimer-code.php";
+    echo "<button onclick='eulaAgree();'>I agree...</button></div>";
+}
+include "nav.php";
+?>
 
     <main>
       <h2>Who We Are</h2>
@@ -73,8 +73,8 @@
       </p>
     </main>
     <?php
-    include "footer.php";
-    ?>
+include "footer.php";
+?>
 
     <!-- Place scripts at bottom of page so page renders faster -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

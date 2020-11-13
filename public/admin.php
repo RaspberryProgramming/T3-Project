@@ -1,6 +1,6 @@
 <!--
   Hardware Online
-  
+
   Authors: Fioti, Figueroa, Danyluk
 
   Version: 1.12
@@ -29,18 +29,18 @@
   </head>
   <body>
   <?php
-  require "connect_db.php";
+require "connect_db.php";
 
-  define("FILE_VERSION", "0.12");
-  define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
+define("FILE_VERSION", "0.12");
+define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
 
-  if (strlen($_COOKIE["disclaimer"]) == 0 || $_COOKIE["disclaimer"]==False){
-    echo "<div class=\"disclaimer-overlay\" id=\"disclaimer-overlay\">";
+if (strlen($_COOKIE["disclaimer"]) == 0 || $_COOKIE["disclaimer"] == false) {
+    echo "<div class='disclaimer-overlay' id='disclaimer-overlay'>";
     include "disclaimer-code.php";
-    echo "<button onclick=\"eulaAgree();\">I agree...</button></div>";
-  }
-  include "nav.php";
-    ?>
+    echo "<button onclick='eulaAgree();'>I agree...</button></div>";
+}
+include "nav.php";
+?>
 
     <main  class="flex-col">
         <div class="flex-col-item row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
@@ -67,8 +67,8 @@
     </main>
 
     <?php
-    include "footer.php";
-    ?>
+include "footer.php";
+?>
 
     <!-- Place scripts at bottom of page so page renders faster -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

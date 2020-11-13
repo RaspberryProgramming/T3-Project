@@ -11,10 +11,10 @@
         <a href="/Disclaimer.php">Disclaimer</a>
 
         </div>
-      <p>(C) 2020 
-      <?php echo FILE_AUTHOR;?>  
+      <p>(C) 2020
+      <?php echo FILE_AUTHOR; ?>
       All Rights Reserved</p>
       <?php
-      echo "<p>Version: <a href='/Changelog.php'>" . FILE_VERSION . "</a></p>";
-      ?>
+echo "<p>Version: <a href='/Changelog.php'>" . FILE_VERSION . "</a></p>";
+?>
 </footer>

@@ -1,8 +1,8 @@
 <?php
-    
+
 $table = "T3_products"; # stores which table that will be added to
 
-if ($_SERVER['REQUEST_METHOD'] == "POST"){
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $vendorid = $_POST["vendorID"];
     $model = $_POST["model"];
     $product = $_POST["product"];
@@ -10,77 +10,70 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $price = $_POST["price"];
     $stock = $_POST["stock"];
 
-    switch (""){
-      case $vendorid:
-        $display_message = "Vendor value missing";
-        break;
-      
-      case $model:
-        $display_message = "Model value missing";
-        break;
-      
-      case $product:
-        $display_message = "Product value missing";
-        break;
-      
-      case $description:
-        $display_message = "Description value missing";
-        break;
-      
-      case $price:
-        $display_message = "Price value missing";
-        break;
+    switch ("") {
+        case $vendorid:
+            $display_message = "Vendor value missing";
+            break;
 
-      case $stock:
-        $display_message = "Stock value missing";
+        case $model:
+            $display_message = "Model value missing";
+            break;
 
-      default:
-        if(gettype(floatval($price)) != "double"){
-          $display_message = "Invalid price";
-        } else if (preg_match("/[a-z]/i", $stock)){
-          $display_message = "Stock cannot have letters";
-        } else if (strlen($model) < 4){
-            $display_message = "Model is less than 4 characters long";
-        } else if (strlen($description) < 5){
-            $display_message = "Description is less than 5 characters long";
-        }
+        case $product:
+            $display_message = "Product value missing";
+            break;
+
+        case $description:
+            $display_message = "Description value missing";
+            break;
+
+        case $price:
+            $display_message = "Price value missing";
+            break;
+
+        case $stock:
+            $display_message = "Stock value missing";
+
+        default:
+            if (gettype(floatval($price)) != "double") {
+                $display_message = "Invalid price";
+            } else if (preg_match("/[a-z]/i", $stock)) {
+                $display_message = "Stock cannot have letters";
+            } else if (strlen($model) < 4) {
+                $display_message = "Model is less than 4 characters long";
+            } else if (strlen($description) < 5) {
+                $display_message = "Description is less than 5 characters long";
+            }
     }
 
 } else {
     $vendorid = $model = $product = $description = $price = $stock = "";
 }
 
+if ($_SERVER['REQUEST_METHOD'] == "POST" and $display_message == "") { # If the user is submitting the form
 
-
-if ($_SERVER['REQUEST_METHOD'] == "POST" AND $display_message == "") { # If the user is submitting the form
-
-    
-    
     # Insert new entry into form
-    $q = "INSERT INTO $table (vendorID, model, product, description, price, stock)"."VALUES('$vendorid', '$model', '$product', '$description', '$price', '$stock');";
-    $r = mysqli_query ($dbc,$q);
+    $q = "INSERT INTO $table (vendorID, model, product, description, price, stock)" . "VALUES('$vendorid', '$model', '$product', '$description', '$price', '$stock');";
+    $r = mysqli_query($dbc, $q);
 
     if ($r) {
-        echo "<a href='' class='btn btn-success'>Add Another</a>";
-        $script = $_SERVER['SCRIPT_NAME'];
-        echo "<form action='$script' method='POST'>";
+        echo "<a href='$_SERVER[REQUEST_URI]' class='btn btn-success'>Add Another</a>";
+        echo "<form action='$_SERVER[SCRIPT_NAME]' method='POST'>";
         echo "<input type='hidden' name='table' value='$table'>";
         echo "<input type='submit' value='Go back to table' class='btn btn-success'>";
-    }
-    else {
+    } else {
         echo mysqli_error($dbc);
     }
 
-}
-else {
-    
+} else {
+
     $r = mysqli_query($dbc, "SELECT * FROM T3_suppliers;"); # Query the table for it's entries
-    if ($r){
-        echo "<form action='' method='POST'>";
+    if ($r) {
+        echo "<form action='$_SERVER[REQUEST_URI]' method='POST'>";
         echo "<br> Vendor ID: <select id='vendorID' name='vendorID' >";
-        while ($row = mysqli_fetch_array( $r, MYSQLI_NUM)) {
+        while ($row = mysqli_fetch_array($r, MYSQLI_NUM)) {
             echo "<option value='$row[0]'>$row[1]</option>";
-        } 
+        }
 
         echo "</select> ";
         echo "<br> Model <input type='text' name='model' value='$model'>";
@@ -93,6 +86,5 @@ else {
     } else {
 
     }
-    
+
 }
-?>

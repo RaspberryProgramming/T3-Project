@@ -23,7 +23,7 @@
 .disclaimer-text {
   font-size: 14px;
 }
- 
+
 select {
   background-color: lightgray;
   color: black;
@@ -39,7 +39,7 @@ select {
   -webkit-appearance: none;
 }
 
-.form-button{
+.form-button {
   background-color: #28a745;
   color: white;
   border-style: none;
@@ -67,6 +67,7 @@ select {
   width: 32px;
   height: 32px;
 }
+
 .changelogheader {
   font-size: 80px;
   font-style: "bold";
@@ -77,37 +78,40 @@ select {
   width: 256px;
   height: 256px;
 }
+
 .options {
-  margin:0;
-  height:100%;
-  width:100%;
+  margin: 0;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: row;
 }
-.options-table{
-  padding:10px;
-  width:100%;
 
+.options-table {
+  padding: 10px;
+  width: 100%;
 }
-.options-form{
-  padding:10px;
+
+.options-form {
+  padding: 10px;
 }
-.options-menu{
-  margin:0;
-  top:0px;
-  left:0;
+
+.options-menu {
+  margin: 0;
+  top: 0px;
+  left: 0;
   padding: 2px;
   background-color: gray;
-  height:100vh;
-  width:140px;
+  height: 100vh;
+  width: 140px;
   position: sticky;
-  padding-top: 20vh
+  padding-top: 20vh;
 }
-.shop-table{
-  width:100%;
+.shop-table {
+  width: 100%;
 }
 
-.shop-table tr{
+.shop-table tr {
   border-bottom-style: solid;
   border-bottom-width: 1px;
 }
@@ -120,16 +124,18 @@ select {
   display: block;
   transition: 0.3s;
 }
-.btn-secondary{
+
+.btn-secondary {
   background-color: lightgray;
   border-color: lightgray;
   color: black;
 }
-.carousel-caption{
+
+.carousel-caption {
   bottom: 30%;
 }
 
-.carousel-caption .text{
+.carousel-caption .text {
   border-radius: 4px;
   padding: 4px;
   background-color: black;
@@ -141,8 +147,9 @@ main * {
   margin-top: 5px;
   margin-bottom: 5px;
 }
+
 main {
-  width:100%;
+  width: 100%;
   padding: 10px;
   box-sizing: border-box;
   display: flex;
@@ -181,9 +188,17 @@ table {
 td {
   padding: 4px;
 }
+
 th {
   padding: 4px;
-  background-color: lightgray;
+  background-color: darkgray;
+}
+
+tr:nth-child(odd) {
+  background: lightgray;
+}
+tr:nth-child(even) {
+  background: white;
 }
 
 tr {
@@ -192,11 +207,12 @@ tr {
 
 tr td {
   max-width: 500px;
-
 }
+
 .login {
   margin-top: 20vh;
 }
+
 .login-list {
   margin-top: auto;
   margin-bottom: auto;
@@ -209,16 +225,15 @@ tr td {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  width:100%;
+  width: 100%;
 }
 
-.flex-col-item{
+.flex-col-item {
   height: -moz-fit-content;
   height: -webkit-fit-content;
   height: -fit-content;
   min-width: 30rem;
 }
-
 
 footer {
   margin-top: auto;
@@ -243,6 +258,7 @@ footer .links {
   justify-content: center;
   display: flex;
 }
+
 footer .links * {
   margin-left: 8px;
   margin-right: 8px;
