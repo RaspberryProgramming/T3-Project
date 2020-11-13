@@ -110,6 +110,12 @@ include "nav.php";
             Added shop to website with product page functionality.
           </td>
         </tr>
+        <tr>
+          <td>V0.14</td>
+          <td>
+            Added carousel to homepage and Table Editor to navbar
+          </td>
+        </tr>
       </table>
     </main>
     <?php
