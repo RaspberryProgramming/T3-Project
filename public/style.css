@@ -141,6 +141,18 @@ select {
   background-color: black;
   display: inline-flex;
   flex-direction: column;
+  margin: 30px;
+
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.6;
+}
+
+.carousel-caption .text * {
+  font-weight: bold;
+  color: black;
+  opacity: 1;
+  color: black;
 }
 
 main * {
@@ -262,4 +274,13 @@ footer .links {
 footer .links * {
   margin-left: 8px;
   margin-right: 8px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .carousel-caption {
+    bottom: 10px;
+  }
+  .carousel-caption .text {
+    display: none;
+  }
 }
