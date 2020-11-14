@@ -29,10 +29,10 @@ CREATE TABLE T3_products (
     active TINYINT DEFAULT 1);
 
 INSERT INTO T3_products (vendorID, model, product, stock, description, price, active) VALUES
-    (0, "1259216", "Steam Roller", 10, "Top of the line steam roller from Big Boyz Toyz. This steam roller has a v1 engine and loud sounds to make you think you're right on the job site like the old days.", 100.00, 1),
-    (0, "1259216", "Dune Buggy", 3, "Big Boyz Toyz new and improved dune buggy can handle jumps of up to 20 meters, and drive at 20 mph", 123.45, 1),
-    (1, "1578921", "Solar Roof Tiles", 2000, "First of it's kind, Lesla Solar Roof tiles can power two houses with the roof of one. Don't miss out on the opportunity it will provide your home", 2.39, 1),
-    (1, "1578921", "Solar Panel", 300, "New and improved Solar Panals made by Lelsa Rotors. They can output a total of 100 Jigawatts of power with a 30 hz referesh rate.", 2.39, 1);
+    (1, "1259216", "Steam Roller", 10, "Top of the line steam roller from Big Boyz Toyz. This steam roller has a v1 engine and loud sounds to make you think you're right on the job site like the old days.", 100.00, 1),
+    (1, "1259216", "Dune Buggy", 3, "Big Boyz Toyz new and improved dune buggy can handle jumps of up to 20 meters, and drive at 20 mph", 123.45, 1),
+    (2, "1578921", "Solar Roof Tiles", 2000, "First of it's kind, Lesla Solar Roof tiles can power two houses with the roof of one. Don't miss out on the opportunity it will provide your home", 2.39, 1),
+    (2, "1578921", "Solar Panel", 300, "New and improved Solar Panals made by Lelsa Rotors. They can output a total of 100 Jigawatts of power with a 30 hz referesh rate.", 2.39, 1);
 
 
 DROP TABLE IF EXISTS T3_suppliers;
