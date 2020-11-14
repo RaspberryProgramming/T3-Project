@@ -114,6 +114,14 @@ select {
 .shop-table tr {
   border-bottom-style: solid;
   border-bottom-width: 1px;
+  
+}
+
+
+.shop-table tr td:nth-child(1) {
+  text-align: left;
+  align-items: center;
+  padding-left: 2rem;
 }
 
 .sidenav * {
@@ -177,6 +185,12 @@ fieldset {
 }
 
 a {
+  text-decoration: none;
+  color: black;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:hover {
   text-decoration: none;
   color: black;
 }
