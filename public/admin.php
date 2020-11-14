@@ -54,7 +54,7 @@ include "nav.php";
                 <circle cx="8" cy="4.5" r="1"/>
               </svg>
             </p>
-            <p class="card-text mb-auto"><?php include "./admin/phpinfo.php"?></p>
+            <p class="card-text mb-auto"><?php include "phpinfo.php"?></p>
           </div>
         </div>
         <a href="tables.php">
@@ -72,7 +72,7 @@ include "nav.php";
         </a>
 
         </div>
-      <a class="flex-col-item" href="/admin/projectdocument.php">
+      <a class="flex-col-item" href="projectdocument.php">
         <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-flex flex-column position-static">
             <strong class="d-inline-block mb-2 text-primary">PROJECT DOCUMENTATION</strong>
