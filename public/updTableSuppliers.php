@@ -64,18 +64,32 @@ if ($_SERVER['REQUEST_METHOD']=="GET" && isset($id)) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == "POST" and $display_message == "") { # If the user is submitting the form
+    if (isset($id)) {
+        # Entry is updated
+        $q = "UPDATE $table SET vendorname='$name', address='$address', phone='$phone', email='$email' WHERE $identifiers[$table]='$id';";
+        $r = mysqli_query($dbc, $q);
 
-    # Insert new entry into form
-    $q = "INSERT INTO $table (vendorname, address, phone, email)" . "VALUES('$name', '$address', '$phone', '$email') ;";
-    $r = mysqli_query($dbc, $q);
-
-    if ($r) {
-        echo "<a href='$_SERVER[REQUEST_URI]' class='btn btn-success'>Add Another</a>";
-        echo "<form action='$_SERVER[SCRIPT_NAME]' method='POST'>";
-        echo "<input type='hidden' name='table' value='$table'>";
-        echo "<input type='submit' value='Go back to table' class='btn btn-success'>";
+        if ($r) {
+            echo "Edit Successful";
+            echo "<form action='$_SERVER[SCRIPT_NAME]' method='POST'>";
+            echo "<input type='hidden' name='table' value='$table'>";
+            echo "<input type='submit' value='Go back to table' class='btn btn-success'>";
+        } else {
+            echo mysqli_error($dbc);
+        }
     } else {
-        echo mysqli_error($dbc);
+        # Insert new entry into form
+        $q = "INSERT INTO $table (vendorname, address, phone, email)" . "VALUES('$name', '$address', '$phone', '$email') ;";
+        $r = mysqli_query($dbc, $q);
+
+        if ($r) {
+            echo "<a href='$_SERVER[REQUEST_URI]' class='btn btn-success'>Add Another</a>";
+            echo "<form action='$_SERVER[SCRIPT_NAME]' method='POST'>";
+            echo "<input type='hidden' name='table' value='$table'>";
+            echo "<input type='submit' value='Go back to table' class='btn btn-success'>";
+        } else {
+            echo mysqli_error($dbc);
+        }
     }
 } else {
     echo "<form style='width: 360px;' action='$_SERVER[REQUEST_URI]' method='POST'>";
