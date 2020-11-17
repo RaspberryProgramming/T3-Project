@@ -8,7 +8,7 @@
   Email: admin@hardwareonline.com
 -->
 <?php
-define("FILE_VERSION", "0.12");
+define("FILE_VERSION", "0.15");
 define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
 ?>
 <!DOCTYPE html>
@@ -114,6 +114,12 @@ include "nav.php";
           <td>V0.14</td>
           <td>
             Added carousel to homepage and Table Editor to navbar
+          </td>
+        </tr>
+        <tr>
+          <td>V0.15</td>
+          <td>
+            Added edit functionality to Table Editor.
           </td>
         </tr>
       </table>
