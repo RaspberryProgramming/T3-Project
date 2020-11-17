@@ -14,7 +14,22 @@
 
 $table = "T3_suppliers"; # stores which table that will be added to
 
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
+if ($_SERVER['REQUEST_METHOD']=="GET") {
+    if (isset($id)) {
+        $r = mysqli_query($dbc, "SELECT * FROM $table WHERE $identifiers[$table]=$id;"); # Query the table for it's entries
+        if ($r) {
+            while ($row = mysqli_fetch_array($r, MYSQLI_NUM)) { # iterate over each column
+                $name = $row[1];
+                $address = $row[2];
+                $phone = $row[3];
+                $email = $row[4];
+            }
+        } else {
+            $display_message = "Unable to retreive original values";
+            $display_message += "<p>" . mysqli_error($dbc) . "</p>";
+        }
+    }
+} elseif ($_SERVER['REQUEST_METHOD'] == "POST") {
     $name = $_POST["name"];
     $address = $_POST["address"];
     $phone = $_POST["phone"];
@@ -40,11 +55,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         default:
             if (preg_match("/[a-z]/i", $phone)) {
                 $display_message = "Phone number contains letters";
-            } else if (substr_count($email, "@") != 1) {
+            } elseif (substr_count($email, "@") != 1) {
                 $display_message = "Invalid Email";
             }
     }
-
 } else {
     $name = $address = $phone = $email = "";
 }
@@ -63,22 +77,21 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and $display_message == "") { # If the 
     } else {
         echo mysqli_error($dbc);
     }
-
 } else {
-
-    $r = mysqli_query($dbc, "SELECT * FROM T3_suppliers;"); # Query the table for it's entries
-    if ($r) {
-        echo "<form action='$_SERVER[REQUEST_URI]' method='POST'>";
-        echo "<br> Name <input type='text' name='name' value='$name'>";
-        echo "<br> Address <input type='text' name='address' value='$address'>";
-        echo "<br> Phone <input type='tel' name='phone' value='$phone'>";
-        echo "<br> Email <input type='email' name='email' value='$email'>";
-        echo "<br> <input type='submit'>";
-        echo "</form>";
-        echo "</form>";
-    } else {
-
-    }
-
+    echo "<form style='width: 360px;' action='$_SERVER[REQUEST_URI]' method='POST'>";
+    echo "<div class='form-group'> <label for='name'> Name </label>";
+    echo "<input type='text' name='name' id='name' value='$name' class='form-control' autofocus>";
+    echo "</div>";
+    echo "<div class='form-group'> <label for='address'> Address </label>";
+    echo "<input type='text' name='address' id='address' value='$address' class='form-control'>";
+    echo "</div>";
+    echo "<div class='form-group'> <label for='phone'> Phone </label>";
+    echo "<input type='tel' name='phone' id='phone' value='$phone' class='form-control'>";
+    echo "</div>";
+    echo "<div class='form-group'> <label for='email'> Email </label>";
+    echo "<input type='email' name='email' id='email' value='$email' class='form-control'>";
+    echo "</div>";
+    echo "<br> <input type='submit' value='Submit' class='btn btn-secondary'>";
+    echo "</form>";
 }
 ?>

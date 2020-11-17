@@ -32,7 +32,7 @@
 <?php
 # Global Variable Definitions
 define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
-define("FILE_VERSION", 1.12);
+define("FILE_VERSION", 1.15);
 
 #Import code
 require "connect_db.php"; # Connects to database and creates $dbc as database connection
@@ -67,45 +67,47 @@ $display_message = "";
 
 # stores a translation from table to displayed name when echoing table name
 $dispTableNames = array("T3_users" => "Users", "T3_products" => "Products", "T3_suppliers" => "Suppliers");
+$identifiers = array("T3_users" => "userID", "T3_products" => "productID", "T3_suppliers" => "vendorID");
 
 if (isset($_GET["id"])) { # Checks whether id url argument was defined
-$id = $_GET["id"]; # unique id of the entry that we want to delete
-if (isset($_GET["table"])) # If table is also set, this signifies that the user is requesting to delete a file
-{
-    $table = $_GET["table"]; # Stores the table that the entry we want to delete is in
-} else {
-    # The webpage is not designed to only have id url argument
-    $display_message = "Missing table!!!";
-}
-} else if (isset($_GET["add"])) { # If add url argument is set, this signifies that the user wants to add a new entry
-$add = $_GET["add"]; # add variable stores the table name that we want to change
+    $id = $_GET["id"]; # unique id of the entry that we want to delete
+
+    if (isset($_GET["table"])) { # If table is also set, this signifies that the user is requesting to delete a file
+        $table = $_GET["table"]; # Stores the table that the entry we want to delete is in
+    } elseif ($_GET["edit"]) { # If edit is also set, this signifies that the user wants to edit the id entry
+      $edit = $_GET["edit"];
+    } else {
+        # The webpage is not designed to only have id url argument
+        $display_message = "Missing table!!!";
+    }
+} elseif (isset($_GET["add"])) { # If add url argument is set, this signifies that the user wants to add a new entry
+  $add = $_GET["add"]; # add variable stores the table name that we want to change
 }
 
     if (!isset($id) && !isset($add)) { # If neither id or add were defined, then the table will be displayed
 
         if (isset($_POST["sort"])) { # Checks whether the user sent a POST with sort
         $sort = "ORDER BY " . $_POST["sort"]; # $sort stores the ORDER BY section of mysql query for selected sort column
-    } else {
+        } else {
             $sort = "";
         }
 
         if (isset($_POST["table"])) { # Checks whether the user sent a POST with table
         $table = $_POST["table"]; # stores table that will be displayed
-    } else {
+        } else {
             $table = "T3_products"; # Default table
         }
 
         $r = mysqli_query($dbc, "SELECT * FROM $table $sort;"); # Query the table for it's entries
 
-        if ($r) # If the query is successful
-        {
+        if ($r) { # If the query is successful
             # Options class changes flex-direction so that we can have items side-by-side
             echo "<div class='options'>";
 
             echo "<div class='options-menu'>"; # Changes the flex-direction again so the options within the options menu are displayed correctly
 
             echo "<form action='$_SERVER[REQUEST_URI]' method='POST'>";
-            echo "Table: ";
+            echo "<label style='color: white;'>Table:</label>";
             echo "<select id='table' name='table' >";
             echo "<option value='T3_products'>Products</option>";
             echo "<option value='T3_suppliers'>Vendors</option>";
@@ -122,16 +124,16 @@ $add = $_GET["add"]; # add variable stores the table name that we want to change
 
             while ($explain = mysqli_fetch_array($e, MYSQLI_NUM)) { # iterate over each column
             array_push($columns, $explain[0]); # appends the column name to the end of $columns
-        }
+            }
 
             echo "<form action='$_SERVER[REQUEST_URI]' method='POST'>"; # Form that sends POST to server
-            echo "Sort by: ";
+            echo "<label style='color: white;'>Sort By:</label>";
             echo "<select id='sort' name='sort' >"; # each column will be added to select
 
             for ($i = 0; $i < count($columns); $i++) { # iterates through each column index
             if ($columns[$i] != "active") { # If the column says active it will be removed
             echo "<option value='$columns[$i]'>$columns[$i]</option>"; # Column name is used to display and as value
-        }
+            }
             }
 
             echo "</select> ";
@@ -156,48 +158,47 @@ $add = $_GET["add"]; # add variable stores the table name that we want to change
             # Prints out each column name to the header tag for the table
             for ($i = 0; $i < count($columns); $i++) {
                 if ($columns[$i] != "active") { # Removes active column so it can be added at the end
-                echo "<th> $columns[$i] </th>"; # column name is added to table header
+                    $colname = ucfirst($columns[$i]);
+                    echo "<th> $colname </th>"; # column name is added to table header
                 if ($found == 0) { # As long as the active column has not been found, $col will increment
                 $col++;
                 }
                 } else {
                     $found = 1; # Stops the col counter
-
                 }
             }
-            echo "<th> DELETE </th>"; # Adds DELETE column to the end of the table
+            echo "<th> Edit </th>"; # Adds EDIT column to end of table
+            echo "<th> Delete </th>"; # Adds DELETE column to the end of the table
             echo "</tr>";
 
             # Takes each row and prints each of it's elements in order
             while ($row = mysqli_fetch_array($r, MYSQLI_NUM)) {
                 if ($row[$col] == 1) { # If the row is inactive do not display
-                # Start the table row
-                echo "<tr>";
+                    # Start the table row
+                    echo "<tr>";
 
                     # Print each element of that row
                     $length = count($row);
                     for ($i = 0; $i < $length; $i++) {
                         if ($i != $col) { # As long as the column is not the active column
-                        echo "<td>$row[$i]</td>";
+                            echo "<td>$row[$i]</td>";
                         }
                     }
-                    echo "<td><a class='btn btn-danger' href='?id=$row[0]&table=$table'>DELETE</a></td>"; # DELETE button added to allow deletion functionality at the end of each row
+                    echo "<td><a class='btn btn-warning' href='?id=$row[0]&edit=$table'>Edit</a></td>"; # EDIT button allows editing of entry in each table
+                    echo "<td><a class='btn btn-danger' href='?id=$row[0]&table=$table'>Delete</a></td>"; # DELETE button added to allow deletion functionality at the end of each row
                     echo "</tr>";
                 }
             }
 
             echo "</table>";
         } else { # If there is an error with the initial query, display an error.
-        echo "<br>Database Error!!!";
+            echo "<br>Database Error!!!";
             echo "<li>" . mysqli_error($dbc) . "</li>";
         }
         echo "</div>"; # end of options-table div
         echo "</div>"; # end of options div
-
-    } else if (isset($table) && isset($id)) { # if the user wants to delete a column
+    } elseif (isset($table) && isset($id)) { # if the user wants to delete a column
     # $identifiers is used to match tables with their primary key identifier
-    $identifiers = array("T3_users" => "userID", "T3_products" => "productID", "T3_suppliers" => "vendorID");
-
         $q = "UPDATE $table SET active=0 WHERE $identifiers[$table]=$id"; # The query will update the active column for the row to 0
         $r = mysqli_query($dbc, $q);
 
@@ -213,10 +214,10 @@ $add = $_GET["add"]; # add variable stores the table name that we want to change
         } else {
             echo mysqli_error($dbc); # Display mysqli error if one occurs
         }
-
-    } else if (isset($add)) { # If the user wants to add a new item to the table
-    require "updTable$dispTableNames[$add].php";
-
+    } elseif (isset($add)) { # If the user wants to add a new item to the table
+        require "updTable$dispTableNames[$add].php";
+    } elseif (isset($edit)) {
+        require "updTable$dispTableNames[$edit].php";
     }
     if ($display_message) {
         echo "<b style='background-color: red;'>$display_message</b>";
