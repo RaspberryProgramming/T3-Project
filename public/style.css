@@ -107,6 +107,7 @@ select {
   position: sticky;
   padding-top: 20vh;
 }
+
 .shop-table {
   width: 100%;
 }
@@ -114,9 +115,7 @@ select {
 .shop-table tr {
   border-bottom-style: solid;
   border-bottom-width: 1px;
-  
 }
-
 
 .shop-table tr td:nth-child(1) {
   text-align: left;
@@ -150,7 +149,6 @@ select {
   display: inline-flex;
   flex-direction: column;
   margin: 30px;
-
   background-color: #ffffff;
   border: 1px solid black;
   opacity: 0.6;
@@ -223,6 +221,7 @@ th {
 tr:nth-child(odd) {
   background: lightgray;
 }
+
 tr:nth-child(even) {
   background: white;
 }
@@ -294,6 +293,7 @@ footer .links * {
   .carousel-caption {
     bottom: 10px;
   }
+
   .carousel-caption .text {
     display: none;
   }

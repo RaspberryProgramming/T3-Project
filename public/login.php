@@ -30,7 +30,7 @@ define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
     <title>Hardware Online</title>
   </head>
 
-  <body>
+<body>
       <?php
 if (strlen($_COOKIE["disclaimer"]) == 0 || $_COOKIE["disclaimer"] == false) {
     echo "<div class='disclaimer-overlay' id='disclaimer-overlay'>";

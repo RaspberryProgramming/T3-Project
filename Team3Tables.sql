@@ -1,5 +1,5 @@
 #  Hardware Online
-#  
+#
 #  Authors: Fioti, Figueroa, Danyluk
 #
 #  We are located at 12345 Poughkeepsie Lane, Poughkeepsie New York 12550
@@ -37,7 +37,7 @@ INSERT INTO T3_products (vendorID, model, product, stock, description, price, ac
 
 DROP TABLE IF EXISTS T3_suppliers;
 
-CREATE TABLE T3_suppliers 
+CREATE TABLE T3_suppliers
     (vendorID INT(11) AUTO_INCREMENT PRIMARY KEY UNIQUE,
     vendorname TEXT,
     address TEXT,
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS T3_users
     datechanged DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     );
 
-INSERT INTO T3_users (username, pwHash, hashType, rankID, active, datechanged) VALUES 
+INSERT INTO T3_users (username, pwHash, hashType, rankID, active, datechanged) VALUES
 ("Danyluk", "secure", "none", "Admin", 1, CURRENT_DATE),
 ("Fioti", "password", "none", "Admin", 1, CURRENT_DATE),
 ("Figueroa", "ummm", "none", "Admin", 1, CURRENT_DATE),
