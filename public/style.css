@@ -1,13 +1,130 @@
-.text-muted {
-  color: grey;
-  font-style: italic;
-  font-size: medium;
+select {
+  background-color: lightgray;
+  color: black;
+  border-style: none;
+  padding-top: 0.375rem;
+  padding-right: 0.75rem;
+  padding-bottom: 0.375rem;
+  padding-left: 0.75rem;
+  border-radius: 4px;
+  text-align: center;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
 }
 
-.topofthepage {
-  background-image: url(Header.webp);
-  background-size: cover;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+
+
+a {
+  text-decoration: none;
+  color: black;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+body,
+html {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+footer {
+  margin-top: auto;
+  text-align: center;
+  background-color: #343a40;
+  color: white;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
+  padding: 12px;
+  font-size: 14px;
+}
+
+footer a {
+  color: orange;
+}
+
+footer .links {
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  display: flex;
+}
+
+footer .links * {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+main * {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+main {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 18px;
+}
+
+table * {
+  border-color: lightgray;
+}
+
+table {
+  border-color: white;
+  border-radius: 5px;
+}
+
+td {
+  padding: 4px;
+}
+
+th {
+  padding: 4px;
+  background-color: darkgray;
+}
+
+tr:nth-child(odd) {
+  background: lightgray;
+}
+
+tr:nth-child(even) {
+  background: white;
+}
+
+tr {
+  text-align: center;
+}
+
+tr td {
+  max-width: 500px;
+}
+
+.disclaimer-overlay {
+  padding: 10rem;
+  position: fixed;
+  /*visibility: hidden; /* Disabled overlay for now */
+  background-color: lightgray;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  overflow: scroll;
 }
 
 .disclaimer-overlay button {
@@ -24,59 +141,64 @@
   font-size: 14px;
 }
 
-select {
+.btn-secondary {
   background-color: lightgray;
+  border-color: lightgray;
   color: black;
-  border-style: none;
-  padding-top: 0.375rem;
-  padding-right: 0.75rem;
-  padding-bottom: 0.375rem;
-  padding-left: 0.75rem;
-  border-radius: 4px;
-  text-align: center;
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
 }
 
-.form-button {
-  background-color: #28a745;
-  color: white;
-  border-style: none;
-  padding-top: 0.375rem;
-  padding-right: 0.75rem;
-  padding-bottom: 0.375rem;
-  padding-left: 0.75rem;
-  border-radius: 4px;
+.carousel-caption {
+  bottom: 30%;
 }
 
-.disclaimer-overlay {
-  padding: 10rem;
-  position: fixed;
-  /*visibility: hidden; /* Disabled overlay for now */
-  background-color: lightgray;
+.carousel-caption .text {
+  border-radius: 4px;
+  padding: 4px;
+  background-color: black;
+  display: inline-flex;
+  flex-direction: column;
+  margin: 30px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.6;
+}
+
+.carousel-caption .text * {
+  font-weight: bold;
+  color: black;
+  opacity: 1;
+  color: black;
+}
+
+.flex-col {
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
   width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  overflow: scroll;
 }
 
-.navbar-brand img {
-  width: 32px;
-  height: 32px;
-}
-
-.changelogheader {
-  font-size: 80px;
-  font-style: "bold";
-  font-family: "Times New Roman", Times, serif;
+.flex-col-item {
+  height: -moz-fit-content;
+  height: -webkit-fit-content;
+  height: -fit-content;
+  min-width: 30rem;
 }
 
 .logo-large {
   width: 256px;
   height: 256px;
+}
+
+.login {
+  margin-top: 20vh;
+}
+
+.login-list {
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 0;
+  list-style-type: none;
 }
 
 .options {
@@ -121,172 +243,6 @@ select {
   text-align: left;
   align-items: center;
   padding-left: 2rem;
-}
-
-.sidenav * {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-}
-
-.btn-secondary {
-  background-color: lightgray;
-  border-color: lightgray;
-  color: black;
-}
-
-.carousel-caption {
-  bottom: 30%;
-}
-
-.carousel-caption .text {
-  border-radius: 4px;
-  padding: 4px;
-  background-color: black;
-  display: inline-flex;
-  flex-direction: column;
-  margin: 30px;
-  background-color: #ffffff;
-  border: 1px solid black;
-  opacity: 0.6;
-}
-
-.carousel-caption .text * {
-  font-weight: bold;
-  color: black;
-  opacity: 1;
-  color: black;
-}
-
-main * {
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
-main {
-  width: 100%;
-  padding: 10px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  font-size: 18px;
-}
-
-fieldset {
-  width: 400px;
-  text-align: left;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-  -webkit-tap-highlight-color: transparent;
-}
-
-a:hover {
-  text-decoration: none;
-  color: black;
-}
-
-body,
-html {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-table * {
-  border-color: lightgray;
-}
-
-table {
-  border-color: white;
-  border-radius: 5px;
-}
-
-td {
-  padding: 4px;
-}
-
-th {
-  padding: 4px;
-  background-color: darkgray;
-}
-
-tr:nth-child(odd) {
-  background: lightgray;
-}
-
-tr:nth-child(even) {
-  background: white;
-}
-
-tr {
-  text-align: center;
-}
-
-tr td {
-  max-width: 500px;
-}
-
-.login {
-  margin-top: 20vh;
-}
-
-.login-list {
-  margin-top: auto;
-  margin-bottom: auto;
-  padding: 0;
-  list-style-type: none;
-}
-
-.flex-col {
-  flex-wrap: wrap;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  width: 100%;
-}
-
-.flex-col-item {
-  height: -moz-fit-content;
-  height: -webkit-fit-content;
-  height: -fit-content;
-  min-width: 30rem;
-}
-
-footer {
-  margin-top: auto;
-  text-align: center;
-  background-color: #343a40;
-  color: white;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  margin-bottom: 0px;
-  padding: 12px;
-  font-size: 14px;
-}
-
-footer a {
-  color: orange;
-}
-
-footer .links {
-  margin-left: auto;
-  margin-right: auto;
-  justify-content: center;
-  display: flex;
-}
-
-footer .links * {
-  margin-left: 8px;
-  margin-right: 8px;
 }
 
 @media only screen and (max-width: 1000px) {
