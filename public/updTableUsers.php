@@ -17,7 +17,7 @@ $table = "T3_users"; # stores which table that will be added to
 $rankids = ["Customer", "Employee", "Shareholder", "Admin"];
 $hashtypes = ["none"];
 
-if ($_SERVER['REQUEST_METHOD']=="GET") {
+if ($_SERVER['REQUEST_METHOD']=="GET" && isset($id)) {
     if (isset($id)) {
         $r = mysqli_query($dbc, "SELECT * FROM $table WHERE $identifiers[$table]=$id;"); # Query the table for it's entries
         if ($r) {

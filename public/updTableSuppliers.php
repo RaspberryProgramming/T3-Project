@@ -14,7 +14,7 @@
 
 $table = "T3_suppliers"; # stores which table that will be added to
 
-if ($_SERVER['REQUEST_METHOD']=="GET") {
+if ($_SERVER['REQUEST_METHOD']=="GET" && isset($id)) {
     if (isset($id)) {
         $r = mysqli_query($dbc, "SELECT * FROM $table WHERE $identifiers[$table]=$id;"); # Query the table for it's entries
         if ($r) {
