@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD']=="GET" && isset($id)) {
     $description = $_POST["description"];
     $price = $_POST["price"];
     $stock = $_POST["stock"];
- 
+
     switch ("") {
         case $vendorid:
             $display_message = "Vendor value missing";
@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD']=="GET" && isset($id)) {
 if ($_SERVER['REQUEST_METHOD'] == "POST" and $display_message == "") { # If the user is submitting the form
     if (isset($id)) {
         # Entry is updated
-        $q = "UPDATE $table SET vendorID='$vendorid', model='$model', product='$product', description='$description', price='$price', stock='$stock' WHERE $identifiers[$table]='$id';";
+        $q = "UPDATE $table SET vendorID='$vendorid', model='$model', product='$product', description=" . '"' . $description . '"'. ", price='$price', stock='$stock' WHERE $identifiers[$table]='$id';";
         $r = mysqli_query($dbc, $q);
 
         if ($r) {
@@ -119,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and $display_message == "") { # If the 
         echo "<input type='text' id='product' name='product' value='$product' class='form-control'>";
         echo "</div>";
         echo "<div class='form-group'> <label for='description'> Description </label>";
-        echo "<textarea style='width: 25em;' type='text' id='description' name='description' class='form-control'> $description </textarea>";
+        echo "<textarea style='width: 25em;' type='text' id='description' name='description' class='form-control'>" . $description . "</textarea>";
         echo "</div>";
         echo "<div class='form-group'> <label for='price'> Price ($) </label>";
         echo "<input type='number' step='0.01' id='price' name='price' value='$price' class='form-control'>";
