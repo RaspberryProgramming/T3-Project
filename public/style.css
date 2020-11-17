@@ -245,6 +245,11 @@ tr td {
   padding-left: 2rem;
 }
 
+.mini-logo {
+  width: 32px;
+  height: 32px;
+}
+
 @media only screen and (max-width: 1000px) {
   .carousel-caption {
     bottom: 10px;
