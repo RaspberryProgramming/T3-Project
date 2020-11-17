@@ -14,7 +14,6 @@ select {
 }
 
 
-
 a {
   text-decoration: none;
   color: black;
@@ -112,6 +111,16 @@ tr {
 
 tr td {
   max-width: 500px;
+}
+
+.carousel-inner > .item > img {
+  width:640px;
+  height:360px;
+}
+
+.carousel {
+  width:1000px;
+  height:563px;
 }
 
 .disclaimer-overlay {
@@ -212,6 +221,10 @@ tr td {
 .options-table {
   padding: 10px;
   width: 100%;
+}
+
+.options-table * {
+  margin: auto;
 }
 
 .options-form {
