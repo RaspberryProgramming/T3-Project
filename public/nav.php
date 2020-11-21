@@ -28,8 +28,10 @@
     </ul>
     <ul class="navbar-nav ml-auto" style="left:0">
       <?php
-      session_start();
+      session_start(); # Open the session
+
       if (isset($_SESSION["login_status"])) {
+          # If there is an active login session output a login dropdown menu
           echo "<li class='nav-item dropdown dropleft'>";
           echo "<a class='nav-link dropdown-toggle' data-toggle='dropdown' href='#' role='button' aria-haspopup='true' aria-expanded='false'>";
           echo "<svg width='2em' height='2em' viewBox='0 0 16 16' class='bi bi-person-square' fill='currentColor' xmlns='http://www.w3.org/2000/svg'>";
@@ -49,6 +51,7 @@
           echo "</div>";
           echo "</li>";
       } else {
+          # Output a login button if there isn't an active login session
           echo "<li class='nav-item'>";
           echo "<a class='nav-link' href='/login.php'>Login</a>";
           echo "</li>";

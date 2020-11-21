@@ -8,6 +8,7 @@
   Email: admin@hardwareonline.com
 -->
 <?php
+# Constants used throughout the page such as in the footer
 define("FILE_VERSION", "0.11");
 define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
 ?>
@@ -37,65 +38,67 @@ define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
         include "disclaimer-code.php";
         echo "<button onclick='eulaAgree();'>I agree...</button></div>";
     }
-    include "connect_db.php";
-    include "nav.php";
+    include "connect_db.php"; # Connects to the database and gives us a $dbc connection variable
+    include "nav.php"; # RUns all nav.php code and displays the compiled navbar to the top of the window
     ?>
+
     <main class="login">
       <h2>Login</h2>
       <?php
-      session_start();
+      session_start(); # Starts the session for the client
 
-      if (isset($_POST['username'])) {
+      if (isset($_POST['username'])) { # If a username was sent in a POST save it to a variable
           $username = $_POST['username'];
-      } elseif (isset($_COOKIE['username'])) {
+      } elseif (isset($_COOKIE['username'])) { # If the username is stored in a cookie save it to a variable
           $username = $_COOKIE['username'];
-      } else {
+      } else { # Default the username variable to be empty
           $username = "";
       }
 
-      if (isset($_POST['password'])) {
+      if (isset($_POST['password'])) { # If the password was sent in a POST save it to a variable
           $password = $_POST['password'];
-      } else {
+      } else { # Default the password variable to be empty
           $password = "";
       }
 
-      if ($_SERVER['REQUEST_METHOD'] == "POST") {
-          $query = "SELECT * FROM T3_users WHERE  username='$username' and BINARY pwHash='$password' and active='1';";
+      if ($_SERVER['REQUEST_METHOD'] == "POST") { # If a POST was sent, attempt to log user in
+          $query = "SELECT * FROM T3_users WHERE  username='$username' and BINARY pwHash='$password' and active='1';"; # Search T3_users for active users with username+password combination
 
           $r = mysqli_query($dbc, $query); # Query the table for it's entries
 
-          if ($r) {
-              # userID | username     | pwHash   | hashType | rankID      | active | datechanged
-              if (mysqli_num_rows($r) == 1) {
-                  $_SESSION["login_status"] = "$row[4] $username is logged in.";
-                  echo "<br> Successfully logged in";
+          if ($r) { # if the query went successfully check for found entries
+              if (mysqli_num_rows($r) == 1) { # If there was a user with the combination,
+                  $_SESSION["login_status"] = "$row[4] $username is logged in."; # Set the login_status session variable
+                  echo "<br> Successfully logged in"; # Display sucess message and a button to bring the user back to the homepage
                   echo "<br> <a href='T3.php' class='btn btn-secondary'>Back to homepage</a>";
               } else {
-                  $display_message = "Error!! Please enter correct Username and Password";
+                  $display_message = "Error!! Please enter correct Username and Password"; # Set $display_message to signify that there was an issue with the provided login combination
               }
           } else {
-              echo "Error with SQL query";
+              $display_message = "[Fatal] Error with SQL query"; # Display an error
           }
       }
 
-      if (isset($_SESSION["login_status"]) && $_SERVER['REQUEST_METHOD'] == "GET") {
-          if (isset($_GET['logout'])) {
-              unset($_SESSION["login_status"]);
-              echo "<br> Successfully logged out";
+      if (isset($_SESSION["login_status"]) && $_SERVER['REQUEST_METHOD'] == "GET") { # If the user is already logged in, and has sent a GET Request
+          if (isset($_GET['logout'])) { # If they have clicked a logout button in navbar or login/logout page
+              unset($_SESSION["login_status"]); # unset login_status session variable to signify the user is logged out
+              echo "<br> Successfully logged out"; # Display logout message and button to bring user back to homepage
               echo "<br> <a class='btn btn-secondary' href='T3.php'>Back to Home Page</a>";
-          } else {
+          } else { # If the user hasn't clicked any buttons to logout,
               echo "<br> Already Logged in";
               echo "<br> <a href='?logout=true' class='btn btn-secondary'>Logout</a>";
           }
       } elseif ($display_message != "" || $_SERVER['REQUEST_METHOD'] == "GET") {
-          echo "<form action='$_SERVER[SCRIPT_NAME]' method='POST'>";
+          # if there is a message in $display_message or GET request from a client that is not logged in
+
+          echo "<form action='$_SERVER[SCRIPT_NAME]' method='POST'>"; # Display Login Form
           echo "<ul class='login-list'>";
           echo "<li> <input type='text' name='username' value='$username' class='form-control' placeholder='Username'></li>";
           echo "<li> <input type='password' name='password' value='$password' class='form-control' placeholder='Password' ></li>";
           echo "<li> <input type='submit' value='Submit' class='btn btn-secondary'></li>";
 
-          if ($display_message != "") {
-              echo "<li> <p class='form-warning'>$display_message</p> </li>";
+          if ($display_message != "") { # If there is a display message
+              echo "<li> <p class='form-warning'>$display_message</p> </li>"; # Add to the end of the form in red
           }
 
           echo "</ul>";
@@ -113,8 +116,9 @@ define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
       </ul>-->
     </main>
     <?php
-include "footer.php";
-?>
+    # Footer is included and displayed at the bottom of the page
+    include "footer.php";
+    ?>
 
     <!-- Place scripts at bottom of page so page renders faster -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
