@@ -2,7 +2,7 @@
       <h2>Disclaimer:</h2>
       <div class="disclaimer-text">
         <h3>Your Rights</h3>
-        <p>
+        <p> 
           This website is not liable if information that is stored, transmitted,
           received or deleted on this site is corrupted, lost, deleted, stolen,
           or decrypted. We will work closely with authorities if data is found
