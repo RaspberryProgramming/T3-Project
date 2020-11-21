@@ -31,14 +31,9 @@ define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
   </head>
 
   <body>
-      <?php
-if (strlen($_COOKIE["disclaimer"]) == 0 || $_COOKIE["disclaimer"] == false) {
-    echo "<div class='disclaimer-overlay' id='disclaimer-overlay'>";
-    include "disclaimer-code.php";
-    echo "<button onclick='eulaAgree();'>I agree...</button></div>";
-}
-include "nav.php";
-?>
+    <?php
+    include "nav.php";
+    ?>
     <main>
       <?php
 include "disclaimer-code.php";
