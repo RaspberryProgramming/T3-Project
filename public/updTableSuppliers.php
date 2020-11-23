@@ -11,6 +11,7 @@
 
   Changelog:
     0.12: Added admin page with table editor Figueroa Fioti
+    0.15: Added edit functionality to Table Editor. Figueroa
     0.17: Updated Prologue on all pages Figueroa
 
   We are located at 12345 Poughkeepsie Lane, Poughkeepsie New York 12550
