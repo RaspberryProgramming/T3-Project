@@ -79,7 +79,11 @@ define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
 
           if ($r) { # if the query went successfully check for found entries
               if (mysqli_num_rows($r) == 1) { # If there was a user with the combination,
-                  $_SESSION["login_status"] = "$row[4] $username is logged in."; # Set the login_status session variable
+                  while ($row = mysqli_fetch_array($r, MYSQLI_NUM)) { # iterate over each column
+                    $_SESSION["login_status"] = "$row[1] is logged in."; # Set the login_status session variable
+                    $_SESSION["username"] = $row[1];
+                      $_SESSION["rankid"] = $row[4];
+                  }
                   echo "<br> Successfully logged in"; # Display sucess message and a button to bring the user back to the homepage
                   echo "<br> <a href='T3.php' class='btn btn-secondary'>Back to homepage</a>";
               } else {
@@ -92,7 +96,12 @@ define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
 
       if (isset($_SESSION["login_status"]) && $_SERVER['REQUEST_METHOD'] == "GET") { # If the user is already logged in, and has sent a GET Request
           if (isset($_GET['logout'])) { # If they have clicked a logout button in navbar or login/logout page
-              unset($_SESSION["login_status"]); # unset login_status session variable to signify the user is logged out
+              # unset login_status session variable to signify the user is logged out
+              unset($_SESSION["login_status"]);
+              # unset username and rankid Session variables to block access to restricted functionality
+              unset($_SESSION["username"]);
+              unset($_SESSION["rankid"]);
+
               echo "<br> Successfully logged out"; # Display logout message and button to bring user back to homepage
               echo "<br> <a class='btn btn-secondary' href='T3.php'>Back to Home Page</a>";
           } else { # If the user hasn't clicked any buttons to logout,
@@ -107,13 +116,13 @@ define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
           echo "<li> <input type='text' name='username' value='$username' class='form-control' placeholder='Username'></li>";
           echo "<li> <input type='password' name='password' value='$password' class='form-control' placeholder='Password' ></li>";
           echo "<li> <input type='submit' value='Submit' class='btn btn-secondary'></li>";
-
-          if ($display_message != "") { # If there is a display message
-              echo "<li> <p class='form-warning'>$display_message</p> </li>"; # Add to the end of the form in red
-          }
-
           echo "</ul>";
           echo "</form>";
+
+          
+          if ($display_message != "") { # If there is a display message
+              echo "<p class='form-warning'>$display_message</p>"; # Add to the end of the form in red
+          }
       }
       ?>
       <!--
