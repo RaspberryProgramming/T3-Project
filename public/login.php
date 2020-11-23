@@ -1,15 +1,26 @@
 <!--
   Hardware Online
 
-  Authors: Fioti, Figueroa, Danyluk
+  Filename: login.php
 
+  Authors: Figueroa
+
+  Description: Login page to allow users to access locked functions on the website
+
+  Last Update: 11/21/2020
+
+  Changelog:
+    0.07: Created the beginnings of the Login page and re-enabled disclaimer popup
+    0.11: Added header and footer files, and included them in every page.
+    0.16: Added login functionality
+    0.17: Updated Prologue on all pages
   We are located at 12345 Poughkeepsie Lane, Poughkeepsie New York 12550
   Phone Number: 845-666-6969
   Email: admin@hardwareonline.com
 -->
 <?php
 # Constants used throughout the page such as in the footer
-define("FILE_VERSION", "0.11");
+define("FILE_VERSION", "0.16");
 define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
 ?>
 <!DOCTYPE html>

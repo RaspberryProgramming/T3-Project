@@ -1,8 +1,29 @@
+<!--
+  Hardware Online
+
+  Filename: disclaimer-code.php
+
+  Authors:  Fioti, Figueroa, Danyluk
+
+  Description: Disclaimer text used for disclaimer popup and disclaimer display page
+
+  Last Update: 11/21/2020
+
+  Changelog:
+    0.05: Added Disclaimer popup, and disclaimer page
+    0.06: Disabled disclaimer popup
+    0.07: Created the beginnings of the Login page and re-enabled disclaimer popup
+    0.17: Updated Prologue on all pages
+    
+  We are located at 12345 Poughkeepsie Lane, Poughkeepsie New York 12550
+  Phone Number: 845-666-6969
+  Email: admin@hardwareonline.com
+-->
 <!-- Contents of the disclaimer-->
       <h2>Disclaimer:</h2>
       <div class="disclaimer-text">
         <h3>Your Rights</h3>
-        <p> 
+        <p>
           This website is not liable if information that is stored, transmitted,
           received or deleted on this site is corrupted, lost, deleted, stolen,
           or decrypted. We will work closely with authorities if data is found

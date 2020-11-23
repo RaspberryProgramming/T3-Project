@@ -1,10 +1,18 @@
 <!--
   Hardware Online
 
-  Authors: Fioti, Figueroa, Danyluk
+  Filename: tables.php
 
-  Version: 1.12
+  Authors:  Fioti, Figueroa, Danyluk
 
+  Description: Table editor with edit, delete and add functionality for all database tables.
+
+  Last Update: 11/21/2020
+
+  Changelog:
+    0.12: Added admin page with table editor Figueroa
+    0.15: Added edit functionality to Table Editor Figueroa
+    0.17: Updated Prologue on all pages Figueroa
   We are located at 12345 Poughkeepsie Lane, Poughkeepsie New York 12550
   Phone Number: 845-666-6969
   Email: admin@hardwareonline.com

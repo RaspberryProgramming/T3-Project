@@ -1,10 +1,20 @@
 <!--
   Hardware Online
 
-  Authors: Fioti, Figueroa, Danyluk
+  Filename: login.php
 
-  Version: 1.12
+  Authors:  Fioti, Figueroa, Danyluk
 
+  Description: Displays different admin functionality and whether php is active on the website
+
+  Last Update: 11/21/2020
+
+  Changelog:
+    0.10: Added admin panel
+    0.11: Added header and footer files, and included them in every page.
+    0.12: Added Admin page with table editor, project documentation and php info.
+    0.17: Updated Prologue on all pages
+    
   We are located at 12345 Poughkeepsie Lane, Poughkeepsie New York 12550
   Phone Number: 845-666-6969
   Email: admin@hardwareonline.com

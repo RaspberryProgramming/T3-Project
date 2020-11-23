@@ -1,8 +1,22 @@
 <!--
-    Filename: connect_db.php - Connect to database with default user
-    Important: THis file has out password so it must not be visible to users!
+  Hardware Online
 
-    V1.0 10/8/2020 At original Program
+  Filename: connect_db.php
+
+  Important: THis file has out password so it must not be visible to users!
+
+  Authors:  Fioti, Figueroa, Danyluk
+
+  Description: Creates database connection and gives a $dbc variable to interact with site_db
+
+  Last Update: 11/21/2020
+
+  Changelog:
+    0.09: Created sql database
+    0.17: Updated Prologue on all pages
+  We are located at 12345 Poughkeepsie Lane, Poughkeepsie New York 12550
+  Phone Number: 845-666-6969
+  Email: admin@hardwareonline.com
 -->
 
 <?php

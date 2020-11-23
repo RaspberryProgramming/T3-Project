@@ -1,7 +1,17 @@
 <!--
   Hardware Online
 
-  Authors: Fioti, Figueroa, Danyluk
+  Filename: project documentation
+
+  Authors:  Fioti, Figueroa, Danyluk
+
+  Description: Contains display of project documentation
+
+  Last Update: 11/21/2020
+
+  Changelog:
+    0.12: Added Admin page with table editor, project documentation and php info. Danyluk
+    0.17: Updated Prologue on all pages Figueroa
 
   We are located at 12345 Poughkeepsie Lane, Poughkeepsie New York 12550
   Phone Number: 845-666-6969
@@ -9,7 +19,7 @@
 -->
 <!DOCTYPE html>
 <html lang="en">
-  <head> 
+  <head>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"

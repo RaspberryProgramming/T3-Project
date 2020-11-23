@@ -1,7 +1,23 @@
 <!--
   Hardware Online
 
-  Authors: Fioti, Figueroa, Danyluk
+  Filename: T3.php
+
+  Authors:  Figueroa
+
+  Description: index page of the website. Displays carousel with photos, navbar with a list of pages, and a footer.
+
+  Last Update: 11/21/2020
+
+  Changelog:
+    0.01: Added T3.html
+    0.02: Added navbar, and footer to T3.html
+    0.03: Added Style to website
+    0.05: Added Disclaimer popup, and disclaimer page
+    0.06: Disabled Disclaimer popup
+    0.07: Created the beginnings of the Login page and re-enabled disclaimer popup
+    0.14: Added carousel to homepage and Table Editor to navbar
+    0.17: Updated Prologue on all pages
 
   We are located at 12345 Poughkeepsie Lane, Poughkeepsie New York 12550
   Phone Number: 845-666-6969
@@ -73,7 +89,6 @@ define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
     <span class="sr-only">Next</span>
   </a>
 </div>
-  <!--<img alt="img.logo-large" class="logo-large" src="logo.webp" />-->
 
 
 </main>

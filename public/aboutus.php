@@ -1,8 +1,19 @@
 <!--
   Hardware Online
 
-  Authors: Fioti, Figueroa, Danyluk
+  Filename: aboutus.php
 
+  Authors:  Fioti, Figueroa, Danyluk
+
+  Description: Displays information about the company
+
+  Last Update: 11/21/2020
+
+  Changelog:
+    0.08: Created the About Us Page, and filled it out to share our story
+    0.11: Added header and footer files, and included them in every page.
+    0.17: Updated Prologue on all pages
+    
   We are located at 12345 Poughkeepsie Lane, Poughkeepsie New York 12550
   Phone Number: 845-666-6969
   Email: admin@hardwareonline.com

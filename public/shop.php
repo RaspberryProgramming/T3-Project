@@ -1,9 +1,17 @@
 <!--
   Hardware Online
 
-  Authors: Fioti, Figueroa, Danyluk
+  Filename: shop.php
 
-  Version: 1.12
+  Authors:  Figueroa
+
+  Description: Displays products and product information. If products are clicked, a product page will be displayed.
+
+  Last Update: 11/21/2020
+
+  Changelog:
+    0.13: Added shop to website with product page functionality.
+    0.17: Updated Prologue on all pages
 
   We are located at 12345 Poughkeepsie Lane, Poughkeepsie New York 12550
   Phone Number: 845-666-6969

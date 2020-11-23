@@ -1,3 +1,25 @@
+<!--
+  Hardware Online
+
+  Filename: login.php
+
+  Authors: Figueroa
+
+  Description: Login page to allow users to access locked functions on the website
+
+  Last Update: 11/21/2020
+
+  Changelog:
+    0.02: Added navbar, and footer to T3.html
+    0.03: Added Style to website
+    0.11: Added header and footer files, and included them in every page.
+    0.14: Added carousel to homepage and Table Editor to navbar
+    0.16: Added login functionality
+
+  We are located at 12345 Poughkeepsie Lane, Poughkeepsie New York 12550
+  Phone Number: 845-666-6969
+  Email: admin@hardwareonline.com
+-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="/T3.php"><img class="mini-logo" src="/logo.webp"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -1,9 +1,17 @@
 <!--
   Hardware Online
 
-  Authors: Fioti, Figueroa, Danyluk
+  Filename: updTableSupplierss.php
 
-  Version: 1.12
+  Authors:  Fioti, Figueroa, Danyluk
+
+  Description: Used in table editor to edit, and create table entries for T3_suppliers
+
+  Last Update: 11/21/2020
+
+  Changelog:
+    0.12: Added admin page with table editor Figueroa Fioti
+    0.17: Updated Prologue on all pages Figueroa
 
   We are located at 12345 Poughkeepsie Lane, Poughkeepsie New York 12550
   Phone Number: 845-666-6969

@@ -1,7 +1,21 @@
 <!--
   Hardware Online
 
-  Authors: Fioti, Figueroa, Danyluk
+  Filename: login.php
+
+  Authors: Figueroa
+
+  Description: Login page to allow users to access locked functions on the website
+
+  Last Update: 11/21/2020
+
+  Changelog:
+    0.04: Added Changelog webpage with style
+    0.05: Added Disclaimer popup, and disclaimer page
+    0.06: Disabled disclaimer popup
+    0.07: Created the beginnings of the Login page and re-enabled disclaimer popup
+    0.11: Added header and footer files, and included them in every page.
+    0.17: Updated Prologue on all pages
 
   We are located at 12345 Poughkeepsie Lane, Poughkeepsie New York 12550
   Phone Number: 845-666-6969
@@ -72,7 +86,7 @@ include "nav.php";
         </tr>
         <tr>
           <td>V0.07</td>
-          <td>Created the beginnings of the Login page</td>
+          <td>Created the beginnings of the Login page and re-enabled disclaimer popup</td>
         </tr>
         <tr>
           <td>V0.08</td>
@@ -120,6 +134,18 @@ include "nav.php";
           <td>V0.15</td>
           <td>
             Added edit functionality to Table Editor.
+          </td>
+        </tr>
+        <tr>
+          <td>V0.16</td>
+          <td>
+            Added Login Functionality
+          </td>
+        </tr>
+        <tr>
+          <td>V0.17</td>
+          <td>
+            Updated Prologue on all pages
           </td>
         </tr>
       </table>
