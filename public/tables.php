@@ -80,18 +80,34 @@ $identifiers = array("T3_users" => "userID", "T3_products" => "productID", "T3_s
 if (isset($_GET["id"])) { # Checks whether id url argument was defined
     $id = $_GET["id"]; # unique id of the entry that we want to delete
 
-    if (isset($_GET["table"])) { # If table is also set, this signifies that the user is requesting to delete a file
+    if (isset($_GET["table"]) && isset($dispTableNames[$_GET["table"]])) { # If table is also set, this signifies that the user is requesting to delete a file
         $table = $_GET["table"]; # Stores the table that the entry we want to delete is in
-    } elseif (isset($_GET["edit"])) { # If edit is also set, this signifies that the user wants to edit the id entry
-        $edit = $_GET["edit"];
+    } elseif (isset($_GET["edit"]) && isset($dispTableNames[$_GET["edit"]])) { # If edit is also set, this signifies that the user wants to edit the id entry
+
+        $identifier = $identifiers[$_GET["edit"]];
+
+        $q = "SELECT * FROM $_GET[edit] WHERE $identifier = '$id';";
+        $r = mysqli_query($dbc, $q); # Query the table for it's entries
+
+        if (mysqli_num_rows($r) > 0){
+          $edit = $_GET["edit"];
+        } else {
+          $display_message = "Missing Entry!!!";
+        }
     } else {
         # The webpage is not designed to only have id url argument
         $display_message = "Missing table!!!";
     }
-} elseif (isset($_GET["add"])) { # If add url argument is set, this signifies that the user wants to add a new entry
+} elseif (isset($_GET["add"]) && isset($dispTableNames[$_GET["add"]])) { # If add url argument is set, this signifies that the user wants to add a new entry
   $add = $_GET["add"]; # add variable stores the table name that we want to change
+} elseif (isset($_GET["add"])){
+  # The webpage is not designed to only have id url argument
+  $display_message = "Missing table!!!";
 }
 
+/**************************************************************************
+ *  Delete Function of webpage
+ **************************************************************************/
 if (isset($table) && isset($id)) { # if the user wants to delete a column
 # $identifiers is used to match tables with their primary key identifier
     $q = "UPDATE $table SET active=0 WHERE $identifiers[$table]=$id"; # The query will update the active column for the row to 0
@@ -111,7 +127,11 @@ if (isset($table) && isset($id)) { # if the user wants to delete a column
     }
 }
 
-if (!isset($add) && !isset($edit)) { # If neither id or add were defined, then the table will be displayed
+/**************************************************************************
+ *  Displays table and table functions
+ **************************************************************************/
+
+if (!isset($add) && !isset($edit) && $display_message == "") { # If neither id or add were defined, then the table will be displayed
 
     if (isset($_POST["sort"])) { # Checks whether the user sent a POST with sort
         $sort = "ORDER BY " . $_POST["sort"]; # $sort stores the ORDER BY section of mysql query for selected sort column
@@ -119,7 +139,8 @@ if (!isset($add) && !isset($edit)) { # If neither id or add were defined, then t
         $sort = "";
     }
 
-    if (isset($_POST["filter"])) { # Checks whether the user sent a POST with sort
+    if (isset($_POST["filter"])) { # Checks whether the # The webpage is not designed to only have id url argument
+        $display_message = "Missing table!!!";# user sent a POST with sort
         if ($_POST["filter"] == "Y"){
           $filter = "WHERE active = 1"; # $sort stores the ORDER BY section of mysql query for selected sort column
         } else if ($_POST["filter"] == "N"){
@@ -288,8 +309,16 @@ if (!isset($add) && !isset($edit)) { # If neither id or add were defined, then t
     }
     echo "</div>"; # end of options-table div
     echo "</div>"; # end of options div
+
+/**************************************************************************
+ *  Will open dialog to add entries to specific table
+ **************************************************************************/
 } elseif (isset($add)) { # If the user wants to add a new item to the table
     require "updTable$dispTableNames[$add].php";
+
+/**************************************************************************
+ *  Will open dialog to edit specific entries to specific table
+ **************************************************************************/
 } elseif (isset($edit)) {
     require "updTable$dispTableNames[$edit].php";
 }
