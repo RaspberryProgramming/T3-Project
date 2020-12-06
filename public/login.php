@@ -125,15 +125,6 @@ define("FILE_AUTHOR", "Figueroa");
           }
       }
       ?>
-      <!--
-      <h2>Login</h2>
-
-      <p>Please enter your user name and password below</p>
-
-      <ul class="login-list">
-        <li><input name="username" type="text" placeholder="Username" /></li>
-        <li><input name="password" type="text" placeholder="Password" /></li>
-      </ul>-->
     </main>
     <?php
     # Footer is included and displayed at the bottom of the page
