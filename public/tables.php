@@ -76,6 +76,7 @@ $display_message = "";
 # stores a translation from table to displayed name when echoing table name
 $dispTableNames = array("T3_users" => "Users", "T3_products" => "Products", "T3_suppliers" => "Suppliers");
 $identifiers = array("T3_users" => "userID", "T3_products" => "productID", "T3_suppliers" => "vendorID");
+$script = $_SERVER['SCRIPT_NAME'];
 
 if (isset($_GET["id"])) { # Checks whether id url argument was defined
     $id = $_GET["id"]; # unique id of the entry that we want to delete
@@ -89,10 +90,10 @@ if (isset($_GET["id"])) { # Checks whether id url argument was defined
         $q = "SELECT * FROM $_GET[edit] WHERE $identifier = '$id';";
         $r = mysqli_query($dbc, $q); # Query the table for it's entries
 
-        if (mysqli_num_rows($r) > 0){
-          $edit = $_GET["edit"];
+        if (mysqli_num_rows($r) > 0) {
+            $edit = $_GET["edit"];
         } else {
-          $display_message = "Missing Entry!!!";
+            $display_message = "Missing Entry!!!";
         }
     } else {
         # The webpage is not designed to only have id url argument
@@ -100,9 +101,9 @@ if (isset($_GET["id"])) { # Checks whether id url argument was defined
     }
 } elseif (isset($_GET["add"]) && isset($dispTableNames[$_GET["add"]])) { # If add url argument is set, this signifies that the user wants to add a new entry
   $add = $_GET["add"]; # add variable stores the table name that we want to change
-} elseif (isset($_GET["add"])){
-  # The webpage is not designed to only have id url argument
-  $display_message = "Missing table!!!";
+} elseif (isset($_GET["add"])) {
+    # The webpage is not designed to only have id url argument
+    $display_message = "Missing table!!!";
 }
 
 /**************************************************************************
@@ -115,13 +116,7 @@ if (isset($table) && isset($id)) { # if the user wants to delete a column
 
     // Check query return code
     if ($r) {
-        echo "$id deleted!";
-
-        $script = $_SERVER['SCRIPT_NAME']; # Get name of file without arguments
-        #echo "<meta http-equiv='refresh' content='0;url=$script'>"; # Reload page without arguments
-
-        # if the page doesn't automatically redirect, an anchor is provided
-        #echo "<a class='btn' href='$script/$table'>Click if you are not redirected</a>";
+        echo "<div style='background-color:gray; color: white; margin:0;' class='options-table'>Item deleted!</div>";
     } else {
         echo mysqli_error($dbc); # Display mysqli error if one occurs
     }
@@ -141,18 +136,19 @@ if (!isset($add) && !isset($edit) && $display_message == "") { # If neither id o
 
     if (isset($_POST["filter"])) { # Checks whether the # The webpage is not designed to only have id url argument
         $display_message = "Missing table!!!";# user sent a POST with sort
-        if ($_POST["filter"] == "Y"){
-          $filter = "WHERE active = 1"; # $sort stores the ORDER BY section of mysql query for selected sort column
-        } else if ($_POST["filter"] == "N"){
-          $filter = "WHERE active='0'";
+        if ($_POST["filter"] == "Y") {
+            $filter = "WHERE active = 1"; # $sort stores the ORDER BY section of mysql query for selected sort column
+        } elseif ($_POST["filter"] == "N") {
+            $filter = "WHERE active='0'";
         } else {
-          $filter = "";
+            $filter = "";
         }
     } else {
         $filter = "WHERE active=1";
     }
 
-    if (isset($_POST["table"])) { # Checks whether the user sent a POST with table
+    if (isset($table)) {
+    } elseif (isset($_POST["table"])) { # Checks whether the user sent a POST with table
         $table = $_POST["table"]; # stores table that will be displayed
     } else {
         $table = "T3_products"; # Default table
@@ -167,23 +163,23 @@ if (!isset($add) && !isset($edit) && $display_message == "") { # If neither id o
 
         echo "<div class='options-menu'>"; # Changes the flex-direction again so the options within the options menu are displayed correctly
 
-        echo "<form action='$_SERVER[REQUEST_URI]' method='POST'>";
+        echo "<form action='$script' method='POST'>";
         echo "<label style='color: white;'>Table:</label>";
         echo "<select id='table' name='table' >";
-        if (isset($table) && $table == "T3_products"){
-          echo "<option value='T3_products' selected>Products</option>";
+        if (isset($table) && $table == "T3_products") {
+            echo "<option value='T3_products' selected>Products</option>";
         } else {
-          echo "<option value='T3_products'>Products</option>";
+            echo "<option value='T3_products'>Products</option>";
         }
-        if (isset($table) && $table == "T3_suppliers"){
-          echo "<option value='T3_suppliers' selected>Vendors</option>";
+        if (isset($table) && $table == "T3_suppliers") {
+            echo "<option value='T3_suppliers' selected>Vendors</option>";
         } else {
-          echo "<option value='T3_suppliers'>Vendors</option>";
+            echo "<option value='T3_suppliers'>Vendors</option>";
         }
-        if (isset($table) && $table == "T3_users"){
-          echo "<option value='T3_users' selected>Users</option>";
+        if (isset($table) && $table == "T3_users") {
+            echo "<option value='T3_users' selected>Users</option>";
         } else {
-          echo "<option value='T3_users'>Users</option>";
+            echo "<option value='T3_users'>Users</option>";
         }
         echo "</select>";
         echo "<input type='submit' value='Submit' class='btn btn-info'>";
@@ -198,16 +194,16 @@ if (!isset($add) && !isset($edit) && $display_message == "") { # If neither id o
           array_push($columns, $explain[0]); # appends the column name to the end of $columns
         }
 
-        echo "<form action='$_SERVER[REQUEST_URI]' method='POST'>"; # Form that sends POST to server
+        echo "<form action='$script' method='POST'>"; # Form that sends POST to server
         echo "<label style='color: white;'>Sort By:</label>";
         echo "<select id='sort' name='sort' >"; # each column will be added to select
 
         for ($i = 0; $i < count($columns); $i++) { # iterates through each column index
           if ($columns[$i] != "active") { # If the column says active it will be removed
             if (isset($_POST["sort"]) && $columns[$i] == $_POST["sort"]) {
-              echo "<option value='$columns[$i]' selected>$columns[$i]</option>"; # Column name is used to display and as value
+                echo "<option value='$columns[$i]' selected>$columns[$i]</option>"; # Column name is used to display and as value
             } else {
-              echo "<option value='$columns[$i]'>$columns[$i]</option>"; # Column name is used to display and as value
+                echo "<option value='$columns[$i]'>$columns[$i]</option>"; # Column name is used to display and as value
             }
           }
         }
@@ -216,21 +212,20 @@ if (!isset($add) && !isset($edit) && $display_message == "") { # If neither id o
         # Used to signify filter for table
         echo "<label style='color: white;'>Filter:</label>";
         echo "<select id='filter' name='filter' >";
-        if (isset($_POST["filter"]) && $_POST["filter"] == "Y"){
-          echo "<option value='Y' selected>Show Active</option>";
+        if (isset($_POST["filter"]) && $_POST["filter"] == "Y") {
+            echo "<option value='Y' selected>Show Active</option>";
         } else {
-          echo "<option value='Y'>Show Active</option>";
+            echo "<option value='Y'>Show Active</option>";
         }
-        if (isset($_POST["filter"]) && $_POST["filter"] == "N"){
-          echo "<option value='N' selected>Show Inactive</option>";
+        if (isset($_POST["filter"]) && $_POST["filter"] == "N") {
+            echo "<option value='N' selected>Show Inactive</option>";
         } else {
-          echo "<option value='N'>Show Inactive</option>";
-
+            echo "<option value='N'>Show Inactive</option>";
         }
-        if (isset($_POST["filter"]) && $_POST["filter"] == "A"){
-          echo "<option value='A' selected>Show All</option>";
+        if (isset($_POST["filter"]) && $_POST["filter"] == "A") {
+            echo "<option value='A' selected>Show All</option>";
         } else {
-          echo "<option value='A'>Show All</option>";
+            echo "<option value='A'>Show All</option>";
         }
         echo "</select>";
         echo "<input type='hidden' name='table' value='$table'>"; # Hidden value to send table name in POST
@@ -281,25 +276,7 @@ if (!isset($add) && !isset($edit) && $display_message == "") { # If neither id o
             }
             echo "<td><a class='btn btn-warning' href='?id=$row[0]&edit=$table'>Edit</a></td>"; # EDIT button allows editing of entry in each table
             echo "<td><a class='btn btn-danger' href='?id=$row[0]&table=$table'>Delete</a></td>"; # DELETE button added to allow deletion functionality at the end of each row
-            echo "</tr>";if (isset($table) && isset($id)) { # if the user wants to delete a column
-# $identifiers is used to match tables with their primary key identifier
-    $q = "UPDATE $table SET active=0 WHERE $identifiers[$table]=$id"; # The query will update the active column for the row to 0
-    $r = mysqli_query($dbc, $q);
-
-    // Check query return code
-    if ($r) {
-        echo "$id deleted!";
-
-        $script = $_SERVER['SCRIPT_NAME']; # Get name of file without arguments
-        echo "<meta http-equiv='refresh' content='0;url=$script'>"; # Reload page without arguments
-
-        # if the page doesn't automatically redirect, an anchor is provided
-        echo "<a class='btn' href='$script/$table'>Click if you are not redirected</a>";
-    } else {
-        echo mysqli_error($dbc); # Display mysqli error if one occurs
-    }
-}
-
+            echo "</tr>";
         }
 
         echo "</table>";
