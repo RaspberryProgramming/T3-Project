@@ -32,7 +32,7 @@
 <body>
 <?php
 # Global Variable Definitions
-define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
+define("FILE_AUTHOR", "Figueroa");
 define("FILE_VERSION", 1.13);
 
 #Import code

@@ -21,7 +21,7 @@
 <?php
 # Constants used throughout the page such as in the footer
 define("FILE_VERSION", "0.16");
-define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
+define("FILE_AUTHOR", "Figueroa");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -119,7 +119,7 @@ define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
           echo "</ul>";
           echo "</form>";
 
-          
+
           if ($display_message != "") { # If there is a display message
               echo "<p class='form-warning'>$display_message</p>"; # Add to the end of the form in red
           }

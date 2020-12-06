@@ -251,6 +251,14 @@ tr td {
   padding-top: 20vh;
 }
 
+.receipt {
+  width: 5in;
+  height: 8in;
+  border-style: solid;
+  border-color:black;
+  border-width:1px;
+}
+
 .shop-table {
   width: 100%;
 }

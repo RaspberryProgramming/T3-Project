@@ -148,6 +148,12 @@ include "nav.php";
             Updated Prologue on all pages
           </td>
         </tr>
+        <tr>
+          <td>V0.18</td>
+          <td>
+            Added product receipt page when item an item is purchased.
+          </td>
+        </tr>
       </table>
     </main>
     <?php
