@@ -21,7 +21,7 @@
   Email: admin@hardwareonline.com
 -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/T3.php"><img class="mini-logo" src="/logo.webp"></a>
+  <a class="navbar-brand" href="T3.php"><img class="mini-logo" src="logo.webp"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -29,23 +29,23 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/T3.php">
+        <a class="nav-link" href="T3.php">
           Home
           <span class="sr-only">(current)</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/shop.php">Shop</a>
+        <a class="nav-link" href="shop.php">Shop</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/tables.php">Table Editor</a>
+        <a class="nav-link" href="tables.php">Table Editor</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="/admin.php">Admin</a>
+        <a class="nav-link" href="admin.php">Admin</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/aboutus.php">About Us</a>
+        <a class="nav-link" href="aboutus.php">About Us</a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto" style="left:0">
@@ -68,7 +68,7 @@
           if ($_SESSION["rankid"] == "Admin") {
               echo "<a class='dropdown-item' href='admin.php'>Admin Panel</a>";
           }
-          
+
           echo "<a class='dropdown-item' href='login.php?logout=true'>Logout";
           echo "<svg width='1em' height='1em' viewBox='0 0 16 16' class='bi bi-box-arrow-in-right' fill='currentColor' xmlns='http://www.w3.org/2000/svg'>";
           echo "<path fill-rule='evenodd' d='M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z'/>";
@@ -80,7 +80,7 @@
       } else {
           # Output a login button if there isn't an active login session
           echo "<li class='nav-item'>";
-          echo "<a class='nav-link' href='/login.php'>Login</a>";
+          echo "<a class='nav-link' href='login.php'>Login</a>";
           echo "</li>";
       }
       ?>
