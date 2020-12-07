@@ -56,7 +56,8 @@ define("FILE_AUTHOR", "Figueroa");
     <main class="login">
       <h2>Login</h2>
       <?php
-      session_start(); # Starts the session for the client
+      # Session was started by the navbar
+      $display_message = ""; # Stores potential error messages that the program needs to tell the user
 
       if (isset($_POST['username'])) { # If a username was sent in a POST save it to a variable
           $username = $_POST['username'];
