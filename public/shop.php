@@ -36,11 +36,11 @@ define("FILE_AUTHOR", "Figueroa");
 define("FILE_VERSION", 1.13);
 
 #Import code
-require "connect_db.php"; # Connects to database and creates $dbc as database connection
+require "../connect_db.php"; # Connects to database and creates $dbc as database connection
 
 if (strlen($_COOKIE["disclaimer"]) == 0 || $_COOKIE["disclaimer"] == false) {
     echo "<div class='disclaimer-overlay' id='disclaimer-overlay'>";
-    include "disclaimer-code.php";
+    require "disclaimer-code.php";
     echo "<button onclick='eulaAgree();'>I agree...</button></div>";
 }
 
@@ -192,7 +192,7 @@ if ($display_message) {
 </main>
 <?php
 
-  include "footer.php";
+  require "footer.php";
 
   ?>
 <!-- Place scripts at bottom of page so page renders faster -->

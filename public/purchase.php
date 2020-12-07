@@ -43,10 +43,10 @@ define("FILE_AUTHOR", "Figueroa");
 <?php
   if (strlen($_COOKIE["disclaimer"]) == 0 || $_COOKIE["disclaimer"] == false) {
       echo "<div class='disclaimer-overlay' id='disclaimer-overlay'>";
-      include "disclaimer-code.php";
+      require "disclaimer-code.php";
       echo "<button onclick='eulaAgree();'>I agree...</button></div>";
   }
-  include "nav.php";
+  require "nav.php";
 ?>
 <main>
   <div class="receipt">
@@ -63,7 +63,7 @@ define("FILE_AUTHOR", "Figueroa");
         $id = $_GET['id']; # used to identify the product being purchased
         $tax_rate = 0.08; # Used to determine tax rate in calculations
 
-        require "connect_db.php"; # Connects to database and produces $dbc database connection variable
+        require "../connect_db.php"; # Connects to database and produces $dbc database connection variable
 
         $q = "SELECT * FROM T3_products WHERE productID='$id';"; # Queries for the database entrie connected to the given id
         $r = mysqli_query($dbc, $q); # Query the table for it's entries
@@ -90,7 +90,7 @@ define("FILE_AUTHOR", "Figueroa");
 </main>
 
 <?php
-  include "footer.php";
+  require "footer.php";
 ?>
 
 <!-- Place scripts at bottom of page so page renders faster -->

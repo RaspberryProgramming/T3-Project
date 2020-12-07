@@ -43,16 +43,16 @@ define("FILE_AUTHOR", "Figueroa");
 
   <body>
     <?php
-    include "nav.php";
+    require "nav.php";
     ?>
     <main>
-      <?php
-include "disclaimer-code.php";
-?>
+    <?php
+    require "disclaimer-code.php";
+    ?>
     </main>
     <?php
-include "footer.php";
-?>
+    require "footer.php";
+    ?>
 
     <!-- Place scripts at bottom of page so page renders faster -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

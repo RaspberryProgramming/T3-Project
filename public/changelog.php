@@ -48,10 +48,10 @@ define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
       <?php
 if (strlen($_COOKIE["disclaimer"]) == 0 || $_COOKIE["disclaimer"] == false) {
     echo "<div class='disclaimer-overlay' id='disclaimer-overlay'>";
-    include "disclaimer-code.php";
+    require "disclaimer-code.php";
     echo "<button onclick='eulaAgree();'>I agree...</button></div>";
 }
-include "nav.php";
+require "nav.php";
 ?>
     <main>
       <h1 style="margin-left: 10px">Changelog</h1>
@@ -157,7 +157,7 @@ include "nav.php";
       </table>
     </main>
     <?php
-include "footer.php";
+require "footer.php";
 ?>
 
     <!-- Place scripts at bottom of page so page renders faster -->

@@ -38,7 +38,7 @@
   <body>
   <?php
 # Includes the navbar
-include "nav.php";
+require "nav.php";
 define("FILE_VERSION", "0.12");
 define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
 ?>
@@ -49,7 +49,7 @@ define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
   </main>
 
     <?php
-include "footer.php";
+require "footer.php";
 ?>
 
     <!-- Place scripts at bottom of page so page renders faster -->

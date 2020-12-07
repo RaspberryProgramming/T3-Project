@@ -43,11 +43,11 @@ define("FILE_AUTHOR", "Fioti, Figueroa, Danyluk");
 define("FILE_VERSION", 1.15);
 
 #Import code
-require "connect_db.php"; # Connects to database and creates $dbc as database connection
+require "../connect_db.php"; # Connects to database and creates $dbc as database connection
 
 if (strlen($_COOKIE["disclaimer"]) == 0 || $_COOKIE["disclaimer"] == false) {
     echo "<div class='disclaimer-overlay' id='disclaimer-overlay'>";
-    include "disclaimer-code.php";
+    require "disclaimer-code.php";
     echo "<button onclick='eulaAgree();'>I agree...</button></div>";
 }
 require "nav.php"; # Imports the navbar
@@ -135,7 +135,6 @@ if (!isset($add) && !isset($edit) && $display_message == "") { # If neither id o
     }
 
     if (isset($_POST["filter"])) { # Checks whether the # The webpage is not designed to only have id url argument
-        $display_message = "Missing table!!!";# user sent a POST with sort
         if ($_POST["filter"] == "Y") {
             $filter = "WHERE active = 1"; # $sort stores the ORDER BY section of mysql query for selected sort column
         } elseif ($_POST["filter"] == "N") {
@@ -309,7 +308,7 @@ if ($display_message) {
 
 </main>
 <?php
-include "footer.php";
+require "footer.php";
 ?>
 
 <!-- Place scripts at bottom of page so page renders faster -->
